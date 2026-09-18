@@ -10,6 +10,7 @@
 
 [![Release](https://img.shields.io/badge/Release-v1.2.0-blue.svg)](RELEASES.md)
 [![Platform](https://img.shields.io/badge/Platform-Android%20%7C%20Linux%20Desktop-green.svg)](DOWNLOADS.md)
+[![Live Web App](https://img.shields.io/badge/Prompt%20Generator-Live%20on%20Vercel-success.svg)](https://ifprompt.vercel.app/)
 [![License](https://img.shields.io/badge/License-Proprietary%20%2F%20All%20Rights%20Reserved-lightgrey.svg)](LICENSE.md)
 [![Support](https://img.shields.io/badge/Support-procsctools%40gmail.com-orange.svg)](SUPPORT.md)
 
@@ -21,7 +22,7 @@
 
 | [Downloads](DOWNLOADS.md) | [Releases](RELEASES.md) | [Features](FEATURES.md) | [Mobile App](MOBILE-APP.md) | [Desktop App](DESKTOP-APP.md) |
 |---|---|---|---|---|
-| [Screenshots](SCREENSHOTS.md) | [Videos](VIDEOS.md) | [Media Assets](MEDIA-ASSETS.md) | [Social Media Hub](SOCIAL-MEDIA.md) | [Support](SUPPORT.md) |
+| [Screenshots](SCREENSHOTS.md) | [Videos](VIDEOS.md) | [Prompt Studio (Live)](https://ifprompt.vercel.app/) | [Social Media Hub](SOCIAL-MEDIA.md) | [Support](SUPPORT.md) |
 
 ---
 

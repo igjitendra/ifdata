@@ -1,6 +1,9 @@
 # InvoiceFine Social Media Prompt Generator
+[![Live App](https://img.shields.io/badge/Live%20App-ifprompt.vercel.app-success.svg)](https://ifprompt.vercel.app/)
 
 The **InvoiceFine Social Media Prompt Generator** is a dedicated client-side web application designed for marketing teams, content creators, and social media managers. It generates production-ready marketing copy, structured AI image prompts (Midjourney, FLUX), and AI video prompts (Runway, Kling, Luma) specifically tailored for InvoiceFine features across all major social media platforms.
+
+**Live Application**: [https://ifprompt.vercel.app/](https://ifprompt.vercel.app/)
 
 ---
 
