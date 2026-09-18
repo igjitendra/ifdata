@@ -1,0 +1,28 @@
+# Environment and secrets
+.env
+.env.*
+*.key
+*.pem
+*.p12
+*.keystore
+*.jks
+secrets/
+credentials/
+private/
+
+# Build artifacts & temp dirs
+node_modules/
+dist/
+build/
+target/
+*.log
+
+# Operating System & Editor Files
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
