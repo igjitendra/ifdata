@@ -17,8 +17,9 @@ export const DownloadButtons: React.FC<DownloadButtonsProps> = ({ pkg, className
     const filename = `invoicefine-${sanitizeFilename(pkg.inputs.feature.name)}-${sanitizeFilename(
       pkg.inputs.contentType.name
     )}.txt`;
+    const txtContent = pkg.fullContentText || `${pkg.headline}\n\n${pkg.hook}\n\n${pkg.imagePrompt.prompt}\n\n${pkg.captions.medium}`;
+    const file = new Blob([txtContent], { type: "text/plain;charset=utf-8" });
     const element = document.createElement("a");
-    const file = new Blob([pkg.fullContentText], { type: "text/plain;charset=utf-8" });
     element.href = URL.createObjectURL(file);
     element.download = filename;
     document.body.appendChild(element);
@@ -126,7 +127,7 @@ ${pkg.captions.educational}
 **CTA**: ${pkg.cta}
 
 **Hashtags**:
-\`${pkg.hashtags.join(" ")}\`
+\`${pkg.hashtags.combined}\`
 `;
 
     const element = document.createElement("a");

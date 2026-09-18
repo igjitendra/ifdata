@@ -12,12 +12,10 @@ import {
   Layers,
   MessageSquare,
   Hash,
-  Share2,
   ShieldAlert,
-  Clock,
-  ArrowRight,
-  Check,
   Smartphone,
+  Check,
+  ExternalLink,
 } from "lucide-react";
 import { GeneratedContentPackage } from "@/types";
 import { CopyButton } from "./CopyButton";
@@ -40,29 +38,29 @@ export const OutputPanel: React.FC<OutputPanelProps> = ({
 
   if (!pkg) {
     return (
-      <div className="h-full min-h-[450px] bg-white dark:bg-zinc-900 rounded-2xl border border-dashed border-zinc-300 dark:border-zinc-800 flex flex-col items-center justify-center p-8 text-center">
-        <div className="w-16 h-16 rounded-2xl bg-red-50 dark:bg-red-950/30 flex items-center justify-center text-[#EF3035] mb-4">
-          <Sparkles className="w-8 h-8" />
+      <div className="h-full min-h-[460px] bg-white/80 dark:bg-zinc-900/80 rounded-2xl border border-dashed border-zinc-300 dark:border-zinc-800 flex flex-col items-center justify-center p-6 sm:p-10 text-center transition-colors">
+        <div className="w-14 h-14 rounded-2xl bg-red-500/10 text-[#EF3035] flex items-center justify-center mb-3 shadow-inner">
+          <Sparkles className="w-7 h-7" />
         </div>
-        <h3 className="text-base font-bold text-zinc-800 dark:text-zinc-200 mb-1">
-          Select Your Feature & Content Format
+        <h3 className="text-base font-black text-zinc-900 dark:text-zinc-100 mb-1">
+          Select Your Feature &amp; Generate Content
         </h3>
         <p className="text-xs text-zinc-500 dark:text-zinc-400 max-w-sm mb-6 leading-relaxed">
-          Configure your preferences on the left or click any preset above, then hit <strong>GENERATE CONTENT PACKAGE</strong> to produce complete AI prompts, captions, and scripts.
+          Pick your feature and format on the left, or tap any preset above to instantly create production-grade AI prompts, video scripts, and marketing copy.
         </p>
-        <div className="flex flex-wrap items-center justify-center gap-2 text-[11px] text-zinc-400">
-          <span className="px-2.5 py-1 rounded-md bg-zinc-100 dark:bg-zinc-800">
-            ✓ Midjourney / FLUX Prompts
-          </span>
-          <span className="px-2.5 py-1 rounded-md bg-zinc-100 dark:bg-zinc-800">
-            ✓ Runway Video Prompts
-          </span>
-          <span className="px-2.5 py-1 rounded-md bg-zinc-100 dark:bg-zinc-800">
-            ✓ 7-Slide Carousels
-          </span>
-          <span className="px-2.5 py-1 rounded-md bg-zinc-100 dark:bg-zinc-800">
-            ✓ 15s Reel Scripts
-          </span>
+        <div className="grid grid-cols-2 gap-2 max-w-xs w-full text-[11px] font-semibold text-zinc-500 dark:text-zinc-400">
+          <div className="p-2 rounded-xl bg-zinc-100 dark:bg-zinc-800/60 border border-zinc-200/50 dark:border-zinc-700/50 text-center">
+            📸 Midjourney &amp; FLUX
+          </div>
+          <div className="p-2 rounded-xl bg-zinc-100 dark:bg-zinc-800/60 border border-zinc-200/50 dark:border-zinc-700/50 text-center">
+            🎬 Runway &amp; Kling
+          </div>
+          <div className="p-2 rounded-xl bg-zinc-100 dark:bg-zinc-800/60 border border-zinc-200/50 dark:border-zinc-700/50 text-center">
+            📑 7-Slide Carousels
+          </div>
+          <div className="p-2 rounded-xl bg-zinc-100 dark:bg-zinc-800/60 border border-zinc-200/50 dark:border-zinc-700/50 text-center">
+            📱 15s Reels &amp; Shorts
+          </div>
         </div>
       </div>
     );
@@ -70,411 +68,454 @@ export const OutputPanel: React.FC<OutputPanelProps> = ({
 
   const tabs = [
     { id: "overview", label: "Overview", icon: <Sparkles className="w-3.5 h-3.5" /> },
-    { id: "image", label: "AI Image", icon: <ImageIcon className="w-3.5 h-3.5" /> },
-    { id: "video", label: "AI Video", icon: <Video className="w-3.5 h-3.5" /> },
-    { id: "carousel", label: "Carousel", icon: <Layers className="w-3.5 h-3.5" /> },
-    { id: "reel", label: "Reel / Shorts", icon: <Smartphone className="w-3.5 h-3.5" /> },
-    { id: "captions", label: "Captions", icon: <MessageSquare className="w-3.5 h-3.5" /> },
+    { id: "image", label: "AI Image", badge: "v6.1", icon: <ImageIcon className="w-3.5 h-3.5" /> },
+    { id: "video", label: "AI Video", badge: "Gen-3", icon: <Video className="w-3.5 h-3.5" /> },
+    { id: "carousel", label: "Carousel", badge: "7 Slides", icon: <Layers className="w-3.5 h-3.5" /> },
+    { id: "reel", label: "Reel / Shorts", badge: "Viral", icon: <Smartphone className="w-3.5 h-3.5" /> },
+    { id: "captions", label: "Captions", badge: "6x", icon: <MessageSquare className="w-3.5 h-3.5" /> },
     { id: "hashtags", label: "Hashtags", icon: <Hash className="w-3.5 h-3.5" /> },
     { id: "full", label: "Full Export", icon: <FileText className="w-3.5 h-3.5" /> },
   ];
 
   return (
-    <div className="bg-white dark:bg-zinc-900 rounded-2xl border border-zinc-200/80 dark:border-zinc-800 shadow-sm flex flex-col overflow-hidden">
-      {/* Top Banner with Actions */}
-      <div className="px-5 py-4 border-b border-zinc-200 dark:border-zinc-800 bg-zinc-50/70 dark:bg-zinc-900/60 flex flex-wrap items-center justify-between gap-3">
-        <div>
-          <div className="flex items-center gap-2">
-            <span className="text-xs font-bold text-zinc-900 dark:text-white">
+    <div className="bg-white dark:bg-zinc-900 rounded-2xl border border-zinc-200/80 dark:border-zinc-800 shadow-sm flex flex-col overflow-hidden transition-colors">
+      {/* Header Banner */}
+      <div className="p-4 border-b border-zinc-200 dark:border-zinc-800 bg-zinc-50/70 dark:bg-zinc-950/50 flex flex-wrap items-center justify-between gap-3">
+        <div className="min-w-0">
+          <div className="flex items-center gap-2 flex-wrap">
+            <h3 className="text-sm font-black text-zinc-900 dark:text-white truncate">
               {pkg.inputs.feature.name}
-            </span>
-            <span className="text-[10px] px-2 py-0.5 rounded font-semibold bg-red-100 dark:bg-red-950/60 text-[#EF3035]">
+            </h3>
+            <span className="text-[10px] font-extrabold px-2 py-0.5 rounded-md bg-[#EF3035] text-white shadow-2xs">
               {pkg.inputs.contentType.name}
             </span>
-            <span className="text-[10px] px-1.5 py-0.5 rounded bg-zinc-200 dark:bg-zinc-700 text-zinc-700 dark:text-zinc-300 font-medium">
+            <span className="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-zinc-200 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">
               {pkg.inputs.platform.name}
             </span>
           </div>
-          <span className="text-[11px] text-zinc-400 block mt-0.5">
-            Ratio: {pkg.inputs.aspectRatio} • Language: {pkg.inputs.language.name}
+          <span className="text-[11px] text-zinc-500 dark:text-zinc-400 block mt-0.5">
+            Ratio: {pkg.inputs.aspectRatio} • Lang: {pkg.inputs.language.name} • Audience: {pkg.inputs.audience.name}
           </span>
         </div>
 
-        <div className="flex items-center gap-2">
+        {/* Action Buttons */}
+        <div className="flex items-center gap-2 flex-shrink-0">
           <button
             type="button"
             onClick={() => onSaveFavorite(pkg)}
-            className={`inline-flex items-center gap-1 px-3 py-1.5 text-xs font-semibold rounded-lg border transition-all active:scale-95 ${
+            className={`p-2 rounded-xl border text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer ${
               isFavorite
-                ? "bg-amber-50 dark:bg-amber-950/40 text-amber-600 border-amber-300 dark:border-amber-700"
-                : "bg-white dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 border-zinc-200 dark:border-zinc-700 hover:text-amber-500"
+                ? "bg-amber-500/10 border-amber-500/40 text-amber-500"
+                : "border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-700"
             }`}
+            title="Save to Favorites"
           >
-            <Star className={`w-3.5 h-3.5 ${isFavorite ? "fill-amber-500 text-amber-500" : ""}`} />
-            <span>{isFavorite ? "Saved" : "Save"}</span>
+            <Star className={`w-4 h-4 ${isFavorite ? "fill-amber-500" : ""}`} />
+            <span className="hidden sm:inline">{isFavorite ? "Saved" : "Save"}</span>
           </button>
 
           <DownloadButtons pkg={pkg} />
-
-          <CopyButton
-            textToCopy={pkg.fullContentText}
-            label="Copy All"
-            variant="primary"
-          />
         </div>
       </div>
 
-      {/* Tabs Bar */}
-      <div className="flex items-center gap-1 px-4 pt-2 border-b border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 overflow-x-auto no-scrollbar">
-        {tabs.map((tab) => (
-          <button
-            key={tab.id}
-            type="button"
-            onClick={() => setActiveTab(tab.id as any)}
-            className={`flex items-center gap-1.5 px-3 py-2 text-xs font-semibold border-b-2 transition-all whitespace-nowrap ${
-              activeTab === tab.id
-                ? "border-[#EF3035] text-[#EF3035]"
-                : "border-transparent text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200"
-            }`}
-          >
-            {tab.icon}
-            <span>{tab.label}</span>
-          </button>
-        ))}
+      {/* Tab Bar with Horizontal Scroll */}
+      <div className="flex items-center gap-1 overflow-x-auto no-scrollbar p-1.5 border-b border-zinc-200 dark:border-zinc-800 bg-zinc-100/50 dark:bg-zinc-950/40">
+        {tabs.map((tab) => {
+          const isActive = activeTab === tab.id;
+          return (
+            <button
+              key={tab.id}
+              type="button"
+              onClick={() => setActiveTab(tab.id as any)}
+              className={`inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold rounded-xl whitespace-nowrap transition-all cursor-pointer flex-shrink-0 ${
+                isActive
+                  ? "bg-white dark:bg-zinc-800 text-[#EF3035] dark:text-red-400 shadow-xs border border-zinc-200 dark:border-zinc-700/80"
+                  : "text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200 hover:bg-white/50 dark:hover:bg-zinc-850"
+              }`}
+            >
+              {tab.icon}
+              <span>{tab.label}</span>
+              {tab.badge && (
+                <span
+                  className={`text-[9px] font-extrabold px-1 py-0.2 rounded ${
+                    isActive
+                      ? "bg-[#EF3035]/15 text-[#EF3035]"
+                      : "bg-zinc-200 dark:bg-zinc-800 text-zinc-500"
+                  }`}
+                >
+                  {tab.badge}
+                </span>
+              )}
+            </button>
+          );
+        })}
       </div>
 
       {/* Tab Panels */}
-      <div className="p-5 sm:p-6 overflow-y-auto max-h-[600px] space-y-5">
-        {/* Real Screenshot Rule Reminder Banner */}
-        <div className="p-3 rounded-xl border border-rose-200 dark:border-rose-900/60 bg-rose-50/50 dark:bg-rose-950/20 flex items-start gap-2.5 text-xs text-rose-800 dark:text-rose-300">
-          <ShieldAlert className="w-4 h-4 flex-shrink-0 mt-0.5 text-[#EF3035]" />
-          <div>
-            <strong>Real UI Screenshot Rule:</strong> Use real application screenshots from{" "}
-            <code className="px-1 py-0.5 rounded bg-rose-100 dark:bg-rose-900/40 text-rose-900 dark:text-rose-200">
-              assets/screenshots/
-            </code>{" "}
-            inside device mockups. Never ask AI to hallucinate or draw the InvoiceFine interface.
-          </div>
-        </div>
-
-        {/* Tab 1: Overview */}
+      <div className="p-4 sm:p-5 flex-1 overflow-y-auto max-h-[600px]">
+        {/* 1. OVERVIEW */}
         {activeTab === "overview" && (
           <div className="space-y-4">
-            {/* Concept Card */}
-            <div className="p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-800/40">
+            <div className="p-4 rounded-xl bg-zinc-50 dark:bg-zinc-950/60 border border-zinc-200/80 dark:border-zinc-800">
               <div className="flex items-center justify-between mb-2">
-                <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-500">
-                  Concept & Strategy
-                </h4>
-                <CopyButton textToCopy={pkg.concept} />
+                <span className="text-[11px] font-black uppercase tracking-wider text-[#EF3035]">
+                  Scroll-Stopping Hook
+                </span>
+                <CopyButton textToCopy={pkg.hook} label="Copy Hook" />
               </div>
-              <p className="text-xs text-zinc-700 dark:text-zinc-300 leading-relaxed">
-                {pkg.concept}
-              </p>
-            </div>
-
-            {/* Hook Card */}
-            <div className="p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-800/40">
-              <div className="flex items-center justify-between mb-2">
-                <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-500">
-                  Hook (First 1–3 Seconds)
-                </h4>
-                <CopyButton textToCopy={pkg.hook} />
-              </div>
-              <p className="text-sm font-bold text-zinc-900 dark:text-white italic">
+              <p className="text-sm sm:text-base font-extrabold text-zinc-900 dark:text-white leading-snug">
                 "{pkg.hook}"
               </p>
             </div>
 
-            {/* Headline & Subheadline */}
-            <div className="p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-800/40">
-              <div className="flex items-center justify-between mb-2">
-                <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-500">
-                  Headline & Subheadline
-                </h4>
-                <CopyButton textToCopy={`${pkg.headline}\n${pkg.subheadline}`} />
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div className="p-3.5 rounded-xl border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-850/50">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-zinc-400 block mb-1">
+                  Primary Headline
+                </span>
+                <p className="text-xs font-bold text-zinc-900 dark:text-white">{pkg.headline}</p>
               </div>
-              <h3 className="text-base font-extrabold text-zinc-900 dark:text-white mb-1">
-                {pkg.headline}
-              </h3>
-              <p className="text-xs text-zinc-600 dark:text-zinc-400">
-                {pkg.subheadline}
-              </p>
+              <div className="p-3.5 rounded-xl border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-850/50">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-zinc-400 block mb-1">
+                  Target Call-to-Action
+                </span>
+                <p className="text-xs font-bold text-[#EF3035]">{pkg.cta}</p>
+              </div>
             </div>
 
-            {/* CTA */}
-            <div className="p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-800/40">
-              <div className="flex items-center justify-between mb-2">
-                <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-500">
-                  Recommended Call to Action
-                </h4>
-                <CopyButton textToCopy={pkg.cta} />
-              </div>
-              <p className="text-xs font-bold text-[#EF3035]">
-                {pkg.cta}
-              </p>
+            <div className="p-3.5 rounded-xl border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-850/50">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-zinc-400 block mb-1">
+                Campaign Positioning Concept
+              </span>
+              <p className="text-xs text-zinc-600 dark:text-zinc-300 leading-relaxed">{pkg.concept}</p>
             </div>
           </div>
         )}
 
-        {/* Tab 2: AI Image Prompt */}
+        {/* 2. AI IMAGE PROMPT */}
         {activeTab === "image" && (
           <div className="space-y-4">
-            <div className="p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-800/40">
-              <div className="flex items-center justify-between mb-2">
-                <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-500">
-                  Midjourney / FLUX / DALL-E Production Prompt
-                </h4>
-                <CopyButton textToCopy={pkg.imagePrompt.prompt} />
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <span className="text-[11px] font-black uppercase tracking-wider px-2 py-0.5 rounded-md bg-purple-500/10 text-purple-600 dark:text-purple-400 border border-purple-500/20">
+                  Midjourney v6.1 / FLUX.1 Pro
+                </span>
+                <span className="text-[11px] text-zinc-400">Ratio: {pkg.inputs.aspectRatio}</span>
               </div>
-              <pre className="text-xs text-zinc-800 dark:text-zinc-200 font-mono whitespace-pre-wrap leading-relaxed p-3 bg-white dark:bg-zinc-900 rounded-lg border border-zinc-200 dark:border-zinc-800">
-                {pkg.imagePrompt.prompt}
-              </pre>
+              <CopyButton textToCopy={pkg.imagePrompt.prompt} label="Copy Prompt" />
             </div>
 
-            <div className="p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-800/40">
-              <div className="flex items-center justify-between mb-2">
-                <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-500">
-                  Typography Text Placement Area
-                </h4>
-                <CopyButton textToCopy={pkg.imagePrompt.textArea} />
-              </div>
-              <p className="text-xs text-zinc-700 dark:text-zinc-300">
-                {pkg.imagePrompt.textArea}
-              </p>
+            <div className="p-4 rounded-xl bg-zinc-950 text-zinc-200 font-mono text-xs leading-relaxed border border-zinc-800 shadow-inner select-all">
+              {pkg.imagePrompt.prompt}
             </div>
 
-            <div className="p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-800/40">
-              <div className="flex items-center justify-between mb-2">
-                <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-500">
-                  Negative Prompt
-                </h4>
-                <CopyButton textToCopy={pkg.imagePrompt.negativePrompt} />
+            {/* Strict Screenshot Notice */}
+            <div className="p-3 rounded-xl border border-amber-500/30 bg-amber-500/5 text-amber-600 dark:text-amber-400 flex items-start gap-2.5 text-xs">
+              <ShieldAlert className="w-4 h-4 flex-shrink-0 mt-0.5 text-amber-500" />
+              <div>
+                <strong className="block font-bold">Real Screenshot Composite Directive:</strong>
+                <span>{pkg.imagePrompt.screenshotInstruction}</span>
               </div>
-              <p className="text-xs text-rose-600 dark:text-rose-400 font-mono">
+            </div>
+
+            <div className="p-3.5 rounded-xl border border-zinc-200/80 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950/40">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-zinc-400 block mb-1">
+                Negative Prompt (Copy to prevent AI flaws):
+              </span>
+              <p className="text-xs font-mono text-zinc-600 dark:text-zinc-400 leading-relaxed">
                 {pkg.imagePrompt.negativePrompt}
               </p>
             </div>
           </div>
         )}
 
-        {/* Tab 3: AI Video Prompt */}
+        {/* 3. AI VIDEO PROMPT */}
         {activeTab === "video" && (
           <div className="space-y-4">
-            <div className="p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-800/40">
-              <div className="flex items-center justify-between mb-2">
-                <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-500">
-                  Runway / Kling / Luma Video Prompt (Timeline Breakdown)
-                </h4>
-                <CopyButton
-                  textToCopy={pkg.videoPrompt.scenes
-                    .map(
-                      (s) =>
-                        `SCENE ${s.sceneNumber} (${s.timeRange}):\nVisual: ${s.visual}\nCamera: ${s.camera}\nAction: ${s.action}\nText: "${s.onScreenText}"`
-                    )
-                    .join("\n\n")}
-                />
-              </div>
-
-              <div className="space-y-3 mt-3">
-                {pkg.videoPrompt.scenes.map((s) => (
-                  <div
-                    key={s.sceneNumber}
-                    className="p-3 bg-white dark:bg-zinc-900 rounded-lg border border-zinc-200 dark:border-zinc-800 text-xs space-y-1"
-                  >
-                    <div className="flex items-center justify-between font-bold text-zinc-900 dark:text-zinc-100">
-                      <span>Scene {s.sceneNumber}</span>
-                      <span className="text-[10px] px-1.5 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-500">
-                        {s.timeRange}
-                      </span>
-                    </div>
-                    <p><strong className="text-zinc-500">Visual:</strong> {s.visual}</p>
-                    <p><strong className="text-zinc-500">Camera:</strong> {s.camera}</p>
-                    <p><strong className="text-zinc-500">On-Screen:</strong> <em>"{s.onScreenText}"</em></p>
-                  </div>
-                ))}
-              </div>
+            <div className="flex items-center justify-between">
+              <span className="text-[11px] font-black uppercase tracking-wider px-2 py-0.5 rounded-md bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20">
+                Runway Gen-3 / Kling 1.5 Script ({pkg.videoPrompt.duration})
+              </span>
+              <CopyButton
+                textToCopy={JSON.stringify(pkg.videoPrompt, null, 2)}
+                label="Copy Script"
+              />
             </div>
 
-            <div className="p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-800/40">
-              <div className="flex items-center justify-between mb-2">
-                <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-500">
-                  Spoken Voice-Over Script
-                </h4>
-                <CopyButton textToCopy={pkg.videoPrompt.voiceover} />
+            {/* Scenes */}
+            <div className="space-y-3">
+              {pkg.videoPrompt.scenes.map((scene) => (
+                <div
+                  key={scene.sceneNumber}
+                  className="p-3.5 rounded-xl border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-850/50 space-y-1.5"
+                >
+                  <div className="flex items-center justify-between text-xs">
+                    <strong className="text-zinc-900 dark:text-white font-black">
+                      Scene {scene.sceneNumber} ({scene.timeRange})
+                    </strong>
+                    <span className="text-[10px] px-1.5 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-500">
+                      {scene.camera}
+                    </span>
+                  </div>
+                  <p className="text-xs text-zinc-600 dark:text-zinc-300">
+                    <strong>Action:</strong> {scene.action}
+                  </p>
+                  <p className="text-xs text-[#EF3035] font-bold">
+                    On-Screen Text: "{scene.onScreenText}"
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            {/* Voiceover */}
+            <div className="p-3.5 rounded-xl border border-zinc-200/80 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950/40">
+              <div className="flex items-center justify-between mb-1">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-zinc-400">
+                  Voice-Over Audio Script
+                </span>
+                <CopyButton textToCopy={pkg.videoPrompt.voiceover} label="Copy VO" />
               </div>
-              <p className="text-xs text-zinc-800 dark:text-zinc-200 italic p-3 bg-white dark:bg-zinc-900 rounded-lg border border-zinc-200 dark:border-zinc-800">
+              <p className="text-xs font-semibold text-zinc-800 dark:text-zinc-200">
                 "{pkg.videoPrompt.voiceover}"
               </p>
             </div>
           </div>
         )}
 
-        {/* Tab 4: Carousel */}
+        {/* 4. CAROUSEL */}
         {activeTab === "carousel" && (
           <div className="space-y-3">
             <div className="flex items-center justify-between mb-1">
-              <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-500">
-                7-Slide Carousel Blueprint
-              </h4>
+              <span className="text-[11px] font-black uppercase tracking-wider text-[#EF3035]">
+                {pkg.carousel.totalSlides}-Slide Framework
+              </span>
               <CopyButton
                 textToCopy={pkg.carousel.slides
                   .map(
                     (s) =>
-                      `SLIDE ${s.slideNumber}: ${s.headline}\nBody: ${s.bodyText}\nVisual: ${s.visualConcept}\nDirective: ${s.screenshotInstruction}`
+                      `SLIDE ${s.slideNumber}: ${s.headline}\n${s.bodyText}\nVisual: ${s.visualConcept}\n`
                   )
-                  .join("\n\n")}
+                  .join("\n---\n\n")}
                 label="Copy All Slides"
               />
             </div>
 
-            {pkg.carousel.slides.map((s) => (
+            {pkg.carousel.slides.map((slide) => (
               <div
-                key={s.slideNumber}
-                className="p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-800/40 text-xs space-y-1.5"
+                key={slide.slideNumber}
+                className="p-3.5 rounded-xl border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-850/50 space-y-1.5"
               >
                 <div className="flex items-center justify-between">
-                  <span className="font-extrabold text-[#EF3035] text-xs">
-                    Slide {s.slideNumber} of {pkg.carousel.totalSlides}
+                  <span className="text-[10px] font-black px-2 py-0.5 rounded bg-[#EF3035]/15 text-[#EF3035]">
+                    SLIDE {slide.slideNumber}
                   </span>
-                  <CopyButton
-                    textToCopy={`Headline: ${s.headline}\n${s.bodyText}\nVisual: ${s.visualConcept}`}
-                    label="Copy Slide"
-                  />
+                  {slide.screenshotFilename && (
+                    <span className="text-[9px] font-bold text-amber-500">
+                      Asset: {slide.screenshotFilename}
+                    </span>
+                  )}
                 </div>
-                <h4 className="text-sm font-bold text-zinc-900 dark:text-white">
-                  {s.headline}
+                <h4 className="text-xs font-extrabold text-zinc-900 dark:text-white">
+                  {slide.headline}
                 </h4>
-                <p className="text-zinc-600 dark:text-zinc-300">{s.bodyText}</p>
-                <div className="pt-2 border-t border-zinc-200/60 dark:border-zinc-700/60 text-[11px] text-zinc-500 dark:text-zinc-400 space-y-0.5">
-                  <p><strong>Visual:</strong> {s.visualConcept}</p>
-                  <p><strong>UI Directive:</strong> {s.screenshotInstruction}</p>
-                </div>
+                <p className="text-xs text-zinc-600 dark:text-zinc-300">{slide.bodyText}</p>
+                <p className="text-[11px] text-zinc-400 italic">
+                  <strong>Layout:</strong> {slide.visualConcept}
+                </p>
               </div>
             ))}
           </div>
         )}
 
-        {/* Tab 5: Reel */}
+        {/* 5. REEL / SHORTS */}
         {activeTab === "reel" && (
-          <div className="space-y-4 text-xs">
-            <div className="p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-800/40 space-y-3">
-              <div className="flex items-center justify-between">
-                <h4 className="font-bold uppercase tracking-wider text-zinc-500">
-                  Reel Production Script
-                </h4>
-                <CopyButton
-                  textToCopy={`HOOK: ${pkg.reel.hook}\nPROBLEM: ${pkg.reel.problem}\nSOLUTION: ${pkg.reel.solution}\nDEMO: ${pkg.reel.demonstration}\nBENEFIT: ${pkg.reel.benefit}\nVOICEOVER: "${pkg.reel.voiceover}"\nCTA: ${pkg.reel.cta}`}
-                />
-              </div>
+          <div className="space-y-3">
+            <div className="flex items-center justify-between">
+              <span className="text-[11px] font-black uppercase tracking-wider text-[#EF3035]">
+                Viral 15–30s Short-Form Script
+              </span>
+              <CopyButton
+                textToCopy={`HOOK: ${pkg.reel.hook}\n\nON-SCREEN:\n${pkg.reel.onScreenText.join("\n")}\n\nVOICEOVER:\n${pkg.reel.voiceover}\n\nCTA: ${pkg.reel.cta}`}
+                label="Copy Reel Script"
+              />
+            </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-zinc-800 dark:text-zinc-200">
-                <div className="p-2.5 bg-white dark:bg-zinc-900 rounded-lg border border-zinc-200 dark:border-zinc-800">
-                  <strong className="text-zinc-400 block text-[10px] uppercase">Hook (0–2s)</strong>
-                  {pkg.reel.hook}
-                </div>
-                <div className="p-2.5 bg-white dark:bg-zinc-900 rounded-lg border border-zinc-200 dark:border-zinc-800">
-                  <strong className="text-zinc-400 block text-[10px] uppercase">Problem (2–5s)</strong>
-                  {pkg.reel.problem}
-                </div>
-                <div className="p-2.5 bg-white dark:bg-zinc-900 rounded-lg border border-zinc-200 dark:border-zinc-800">
-                  <strong className="text-zinc-400 block text-[10px] uppercase">Solution (5–10s)</strong>
-                  {pkg.reel.solution}
-                </div>
-                <div className="p-2.5 bg-white dark:bg-zinc-900 rounded-lg border border-zinc-200 dark:border-zinc-800">
-                  <strong className="text-zinc-400 block text-[10px] uppercase">Benefit & CTA</strong>
-                  {pkg.reel.benefit} — {pkg.reel.cta}
-                </div>
+            <div className="p-3.5 rounded-xl border border-zinc-200/80 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950/40 space-y-2">
+              <strong className="text-xs font-black block text-zinc-900 dark:text-white">
+                Cover Thumbnail Text: "{pkg.reel.coverText}"
+              </strong>
+              <div className="text-xs space-y-1 text-zinc-600 dark:text-zinc-300">
+                <p>
+                  <strong>Hook (0-3s):</strong> "{pkg.reel.hook}"
+                </p>
+                <p>
+                  <strong>Feature Demo:</strong> {pkg.reel.demonstration}
+                </p>
+                <p>
+                  <strong>Payoff Benefit:</strong> {pkg.reel.benefit}
+                </p>
+                <p className="text-[#EF3035] font-bold">
+                  <strong>Call-to-Action:</strong> {pkg.reel.cta}
+                </p>
               </div>
+            </div>
 
-              <div className="p-3 bg-white dark:bg-zinc-900 rounded-lg border border-zinc-200 dark:border-zinc-800">
-                <strong className="text-zinc-400 block text-[10px] uppercase mb-1">
-                  Spoken Voiceover Script
-                </strong>
-                <p className="italic">"{pkg.reel.voiceover}"</p>
-              </div>
+            <div className="p-3 rounded-xl border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-850/50">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-zinc-400 block mb-1">
+                On-Screen Animated Text Sequence
+              </span>
+              <ul className="text-xs space-y-1 font-semibold text-zinc-800 dark:text-zinc-200 list-disc list-inside">
+                {pkg.reel.onScreenText.map((txt, idx) => (
+                  <li key={idx}>{txt}</li>
+                ))}
+              </ul>
             </div>
           </div>
         )}
 
-        {/* Tab 6: Captions */}
+        {/* 6. CAPTIONS (6 Distinct Styles) */}
         {activeTab === "captions" && (
-          <div className="space-y-4">
-            <div className="p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-800/40">
-              <div className="flex items-center justify-between mb-2">
-                <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-500">
-                  Short Caption (High-Engagement)
-                </h4>
-                <CopyButton textToCopy={pkg.captions.short} />
+          <div className="space-y-3">
+            <span className="text-[11px] font-black uppercase tracking-wider text-[#EF3035] block">
+              6x Conversion-Focused Captions
+            </span>
+
+            {/* Short */}
+            <div className="p-3.5 rounded-xl border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-850/50">
+              <div className="flex items-center justify-between mb-1">
+                <span className="text-[10px] font-black uppercase tracking-wider text-zinc-400">
+                  1. Short &amp; Punchy
+                </span>
+                <CopyButton textToCopy={pkg.captions.short} label="Copy" />
               </div>
-              <p className="text-xs text-zinc-800 dark:text-zinc-200 whitespace-pre-wrap">
+              <p className="text-xs text-zinc-700 dark:text-zinc-300 whitespace-pre-line leading-relaxed">
                 {pkg.captions.short}
               </p>
             </div>
 
-            <div className="p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-800/40">
-              <div className="flex items-center justify-between mb-2">
-                <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-500">
-                  Medium Caption (Feature Highlights)
-                </h4>
-                <CopyButton textToCopy={pkg.captions.medium} />
+            {/* Medium / Retail Problem */}
+            <div className="p-3.5 rounded-xl border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-850/50">
+              <div className="flex items-center justify-between mb-1">
+                <span className="text-[10px] font-black uppercase tracking-wider text-zinc-400">
+                  2. Standard Retail Post
+                </span>
+                <CopyButton textToCopy={pkg.captions.medium} label="Copy" />
               </div>
-              <p className="text-xs text-zinc-800 dark:text-zinc-200 whitespace-pre-wrap">
+              <p className="text-xs text-zinc-700 dark:text-zinc-300 whitespace-pre-line leading-relaxed">
                 {pkg.captions.medium}
               </p>
             </div>
 
-            <div className="p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-800/40">
-              <div className="flex items-center justify-between mb-2">
-                <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-500">
-                  Educational Caption (In-Depth SME Advice)
-                </h4>
-                <CopyButton textToCopy={pkg.captions.educational} />
+            {/* Educational */}
+            <div className="p-3.5 rounded-xl border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-850/50">
+              <div className="flex items-center justify-between mb-1">
+                <span className="text-[10px] font-black uppercase tracking-wider text-zinc-400">
+                  3. Value-First Educational
+                </span>
+                <CopyButton textToCopy={pkg.captions.educational} label="Copy" />
               </div>
-              <p className="text-xs text-zinc-800 dark:text-zinc-200 whitespace-pre-wrap">
+              <p className="text-xs text-zinc-700 dark:text-zinc-300 whitespace-pre-line leading-relaxed">
                 {pkg.captions.educational}
+              </p>
+            </div>
+
+            {/* Sales Offer */}
+            <div className="p-3.5 rounded-xl border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-850/50">
+              <div className="flex items-center justify-between mb-1">
+                <span className="text-[10px] font-black uppercase tracking-wider text-zinc-400">
+                  4. Direct Conversion Offer
+                </span>
+                <CopyButton textToCopy={pkg.captions.sales} label="Copy" />
+              </div>
+              <p className="text-xs text-zinc-700 dark:text-zinc-300 whitespace-pre-line leading-relaxed">
+                {pkg.captions.sales}
               </p>
             </div>
           </div>
         )}
 
-        {/* Tab 7: Hashtags */}
+        {/* 7. HASHTAGS */}
         {activeTab === "hashtags" && (
-          <div className="p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-800/40 space-y-3">
-            <div className="flex items-center justify-between">
-              <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-500">
-                Targeted Hashtag Set ({pkg.hashtags.length} Tags)
-              </h4>
-              <CopyButton textToCopy={pkg.hashtags.join(" ")} label="Copy All Hashtags" />
-            </div>
-            <div className="flex flex-wrap gap-2">
-              {pkg.hashtags.map((tag) => (
-                <span
-                  key={tag}
-                  className="px-2.5 py-1 rounded-lg bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-xs font-semibold text-[#EF3035]"
-                >
-                  {tag}
+          <div className="space-y-3">
+            <div className="p-3.5 rounded-xl border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-850/50">
+              <div className="flex items-center justify-between mb-1">
+                <span className="text-[10px] font-black uppercase tracking-wider text-[#EF3035]">
+                  All-in-One Publishing Block
                 </span>
-              ))}
+                <CopyButton textToCopy={pkg.hashtags.combined} label="Copy All" />
+              </div>
+              <p className="text-xs font-mono text-zinc-800 dark:text-zinc-200 leading-relaxed">
+                {pkg.hashtags.combined}
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div className="p-3 rounded-xl border border-zinc-200/80 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950/40">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-zinc-400 block mb-1">
+                  Feature Specific
+                </span>
+                <p className="text-xs font-mono text-zinc-600 dark:text-zinc-400">
+                  {pkg.hashtags.featureSpecific}
+                </p>
+              </div>
+              <div className="p-3 rounded-xl border border-zinc-200/80 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950/40">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-zinc-400 block mb-1">
+                  Retail &amp; Kirana
+                </span>
+                <p className="text-xs font-mono text-zinc-600 dark:text-zinc-400">
+                  {pkg.hashtags.retail}
+                </p>
+              </div>
             </div>
           </div>
         )}
 
-        {/* Tab 8: Full Export */}
+        {/* 8. FULL EXPORT */}
         {activeTab === "full" && (
           <div className="space-y-3">
             <div className="flex items-center justify-between">
-              <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-500">
-                Full Package Text Export
-              </h4>
-              <div className="flex items-center gap-2">
-                <DownloadButtons pkg={pkg} />
-                <CopyButton textToCopy={pkg.fullContentText} label="Copy Everything" variant="primary" />
-              </div>
+              <span className="text-[11px] font-black uppercase tracking-wider text-zinc-400">
+                Plain Text Package
+              </span>
+              <CopyButton
+                textToCopy={`FEATURE: ${pkg.inputs.feature.name}\nFORMAT: ${pkg.inputs.contentType.name}\nPLATFORM: ${pkg.inputs.platform.name}\n\nHOOK:\n${pkg.hook}\n\nHEADLINE:\n${pkg.headline}\n\nAI IMAGE PROMPT:\n${pkg.imagePrompt.prompt}\n\nAI VIDEO PROMPT:\n${JSON.stringify(pkg.videoPrompt, null, 2)}\n\nCAPTION:\n${pkg.captions.medium}\n\nHASHTAGS:\n${pkg.hashtags.combined}`}
+                label="Copy Everything"
+              />
             </div>
-            <pre className="text-xs text-zinc-800 dark:text-zinc-200 font-mono whitespace-pre-wrap p-4 bg-zinc-50 dark:bg-zinc-800/50 rounded-xl border border-zinc-200 dark:border-zinc-800 overflow-x-auto">
-              {pkg.fullContentText}
-            </pre>
+
+            <textarea
+              readOnly
+              rows={16}
+              value={`FEATURE: ${pkg.inputs.feature.name}
+FORMAT: ${pkg.inputs.contentType.name}
+PLATFORM: ${pkg.inputs.platform.name}
+LANGUAGE: ${pkg.inputs.language.name}
+
+HOOK:
+${pkg.hook}
+
+HEADLINE:
+${pkg.headline}
+
+AI IMAGE PROMPT:
+${pkg.imagePrompt.prompt}
+
+SCREENSHOT REQUIREMENT:
+${pkg.imagePrompt.screenshotInstruction}
+
+AI VIDEO PROMPT:
+${pkg.videoPrompt.objective}
+
+REEL SCRIPT:
+${pkg.reel.voiceover}
+
+CAPTION:
+${pkg.captions.medium}
+
+HASHTAGS:
+${pkg.hashtags.combined}`}
+              className="w-full p-4 rounded-xl font-mono text-xs bg-zinc-950 text-zinc-200 border border-zinc-800 focus:outline-none leading-relaxed shadow-inner"
+            />
           </div>
         )}
       </div>

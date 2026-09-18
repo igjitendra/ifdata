@@ -44,34 +44,106 @@ export function generateContentPackage(params: GenerateParams): GeneratedContent
   const targetAudienceName = customAudience?.trim() || audience.name;
   const langCode = language.id;
 
-  // --- 1. Concept & Angles ---
-  const concept = `Promote "${feature.name}" to ${targetAudienceName} on ${platform.name} via ${contentType.name}, focusing on the goal of ${goal.name}. Uses the "${visualStyle.name}" aesthetic with primary brand accent #EF3035 and strict real screenshot compositing.`;
+  // --- 1. Concept & Strategic Positioning ---
+  const concept = `High-conversion ${contentType.name} designed for ${platform.name}, positioning InvoiceFine's "${feature.name}" directly to ${targetAudienceName}. Objective: ${goal.name}. Aesthetic: ${visualStyle.name} with InvoiceFine Crimson (#EF3035) accenting and strict Real App Screenshot compositing.`;
 
-  // --- 2. Hooks in 3 Languages ---
-  const hooks: Record<string, Record<string, string>> = {
+  // --- 2. Advanced Multi-Hook Architecture ---
+  const hooksData: Record<string, Record<string, { hook1: string; hook2: string; hook3: string }>> = {
     en: {
-      default: `Still spending 15 minutes calculating bills during evening store rush?`,
-      inventory: `Do you really know how many units are sitting in your stock right now?`,
-      khata: `When a customer claims they already settled their old bill...`,
-      printing: `Did you know your phone can print inkless thermal receipts in 3 seconds?`,
-      gst: `CGST, SGST, or IGST? Stop guessing your tax splits on retail bills.`,
-      offline: `What happens to your billing counter when the internet drops?`,
+      default: {
+        hook1: `Still spending 20 minutes every evening balancing messy paper bill books?`,
+        hook2: `The 5-second counter hack Indian retailers are using to speed up billing.`,
+        hook3: `Why 80% of store disputes happen at checkout—and how to fix it forever.`,
+      },
+      inventory: {
+        hook1: `Do you really know how many units are sitting in your shop right now?`,
+        hook2: `Stop saying 'Maal khatam ho gaya' to customers on busy weekends!`,
+        hook3: `The 1-tap stock tracking method that prevents dead inventory loss.`,
+      },
+      khata: {
+        hook1: `Lost Rs 5,000 in forgotten customer Udhaar this month?`,
+        hook2: `How to collect pending customer dues politely without awkward phone calls.`,
+        hook3: `Throw away your torn paper Khata register. Here's a 100% private digital ledger.`,
+      },
+      printing: {
+        hook1: `Turn your smartphone into a wireless thermal billing counter in 3 seconds!`,
+        hook2: `Why smart shopkeepers stopped buying expensive desktop computers for billing.`,
+        hook3: `Print 58mm shop receipts at just 10 paise per print—zero cables, zero toner.`,
+      },
+      gst: {
+        hook1: `CGST, SGST, or IGST? Stop calculating tax splits by hand during rush hours!`,
+        hook2: `The 100% compliant GST billing tool that guarantees your buyers get their ITC.`,
+        hook3: `How to generate flawless GST invoices from your phone without internet.`,
+      },
+      offline: {
+        hook1: `What happens to your billing counter when the broadband drops during a rush?`,
+        hook2: `Cloud billing software frozen again? Here is an app that works 100% offline.`,
+        hook3: `Zero Wi-Fi, zero 5G, zero problem. Create bills anytime, anywhere.`,
+      },
     },
     hinglish: {
-      default: `Dukaan par bheed ho aur bill banane mein time lage? Ab nahi!`,
-      inventory: `Dukaan mein maal kitna bacha hai aur kab bika — pata hi nahi chalta?`,
-      khata: `Jab customer bole: 'Bhaiya, maine toh pichhle hafte payment kar di thi'...?`,
-      printing: `Bina kisi computer ke, apne phone se print karein 3-inch thermal bill!`,
-      gst: `GST bill banane mein tax split ka jhanjhat? Bas ek tap mein solve!`,
-      offline: `Internet band hone par kya aapki dukaan ka billing counter ruk jaata hai?`,
+      default: {
+        hook1: `Dukaan par bheed ho aur calculation mein time lage? Ab hisaab hoga 5 second mein!`,
+        hook2: `Agar aap abhi bhi calculator pe bill bana rahe ho, toh customer ka time waste ho raha hai!`,
+        hook3: `Dukaan band karne ke baad 1 ghanta hisaab milane mein kyu lagana?`,
+      },
+      inventory: {
+        hook1: `Customer maange aur pata chale maal khatam hai? Aisi galti se bachein!`,
+        hook2: `Dukaan mein kitna stock bacha hai, phone par dekhein live bina physical count ke.`,
+        hook3: `Kaun sa item sabse zyada bik raha hai aur kaun sa fas gaya hai?`,
+      },
+      khata: {
+        hook1: `Jab customer bole: 'Bhaiya, maine toh pichhle hafte payment kar di thi'...?`,
+        hook2: `Udhaar maangne mein sharm aati hai? Ek tap mein bhejo polite WhatsApp reminder!`,
+        hook3: `Lal Khata register mein panna phat gaya? Digital hisaab rakhein hamesha safe.`,
+      },
+      printing: {
+        hook1: `Bina computer ke, seedhe phone se print karein 3-inch thermal bill!`,
+        hook2: `Thermal receipt printer ko Bluetooth se connect karein aur banaiye fast counter.`,
+        hook3: `Sirf 10 paise mein professional shop receipt nikaalo bina kisi wire ke.`,
+      },
+      gst: {
+        hook1: `GST bill banane mein CGST aur SGST split ka jhanjhat? Bas 1 tap mein solve!`,
+        hook2: `Inter-state sale par IGST lagana bhool jaate ho? InvoiceFine karega auto-calculate.`,
+        hook3: `B2B customer ka ITC kabhi reject nahi hoga—flawless GST billing phone se.`,
+      },
+      offline: {
+        hook1: `Internet band hone par kya aapki dukaan ka billing counter ruk jaata hai?`,
+        hook2: `Basement mein dukaan hai ya network slow hai? Zero internet pe bill banayein!`,
+        hook3: `Cloud software ka server down? InvoiceFine 100% offline hamesha ready rehta hai.`,
+      },
     },
     hi: {
-      default: `दुकान में ग्राहकों की भीड़ और बिल बनाने में देरी? अब नहीं!`,
-      inventory: `दुकान में कौन सा माल कितना बचा है — क्या आपको सही हिसाब पता है?`,
-      khata: `जब ग्राहक कहे कि पुराना बकाया तो पहले ही दे दिया था...`,
-      printing: `कंप्यूटर के बिना, अपने मोबाइल से सीधे पर्ची प्रिंट करें कुछ ही सेकंड में!`,
-      gst: `जीएसटी बिल में टैक्स गणना की उलझन से पाएं हमेशा के लिए छुटकारा।`,
-      offline: `इंटरनेट बंद होने पर भी आपकी दुकान की बिलिंग कभी नहीं रुकेगी।`,
+      default: {
+        hook1: `दुकान में ग्राहकों की भीड़ और बिल बनाने में देरी? अब काम होगा सिर्फ 5 सेकंड में!`,
+        hook2: `कागज़ की पर्ची और केलकुलेटर छोड़िए, अपनी दुकान को बनाइए आधुनिक और तेज़।`,
+        hook3: `शाम को दुकान बंद करते समय 1 घंटा हिसाब मिलाने में क्यों बर्बाद करना?`,
+      },
+      inventory: {
+        hook1: `दुकान में कौन सा माल कितना बचा है — क्या आपको सही समय पर पता चलता है?`,
+        hook2: `ग्राहकों को 'माल खत्म हो गया' कहने की नौबत कभी न आने दें!`,
+        hook3: `स्मार्ट इन्वेंट्री और स्टॉक अलर्ट्स के साथ अपनी दुकान का नुकसान रोकें।`,
+      },
+      khata: {
+        hook1: `जब ग्राहक कहे कि पुराना बकाया तो पहले ही चुकता कर दिया था...`,
+        hook2: `बिना किसी संकोच के, एक क्लिक में भेजें सौम्य व्हाट्सएप्प पेमेंट रिमाइंडर।`,
+        hook3: `फटी हुई पुरानी खाता डायरी को अलविदा कहें, डिजिटल खाते से हर पाई का हिसाब रखें।`,
+      },
+      printing: {
+        hook1: `कंप्यूटर के बिना, अपने मोबाइल से सीधे पर्ची प्रिंट करें कुछ ही सेकंड में!`,
+        hook2: `ब्लूटूथ थर्मल प्रिंटर से निकालें पक्का बिल — तेज़ और आधुनिक।`,
+        hook3: `सिर्फ 10 पैसे में दुकान की पक्की रसीद, ग्राहकों का विश्वास बढ़ाएं।`,
+      },
+      gst: {
+        hook1: `जीएसटी बिल में टैक्स गणना की उलझन से पाएं हमेशा के लिए छुटकारा।`,
+        hook2: `एक क्लिक में सीजीएसटी और एसजीएसटी का सटीक विभाजन, 100% कानूनी रूप से सही।`,
+        hook3: `बिना इंटरनेट के भी अपने फोन से बनाएं संपूर्ण जीएसटी इनवॉयस।`,
+      },
+      offline: {
+        hook1: `इंटरनेट बंद होने पर भी आपकी दुकान की बिलिंग कभी नहीं रुकेगी।`,
+        hook2: `नेटवर्क ना होने पर भी तेज़ बिलिंग — 100% ऑफलाइन कार्यप्रणाली।`,
+        hook3: `आपका व्यापार डेटा पूरी तरह सुरक्षित आपके अपने मोबाइल में।`,
+      },
     },
   };
 
@@ -85,60 +157,63 @@ export function generateContentPackage(params: GenerateParams): GeneratedContent
     return "default";
   };
 
-  const hook = hooks[langCode]?.[getHookKey()] || hooks.en[getHookKey()];
+  const hookObj = hooksData[langCode]?.[getHookKey()] || hooksData.en[getHookKey()];
+  const primaryHook = hookObj.hook1;
 
   // --- 3. Headlines & Subheadlines ---
-  const headline = `${feature.name}: Fast, Simple & Accurate for ${targetAudienceName}`;
-  const subheadline = `${feature.tagline} Designed specifically for Indian retail and commercial businesses.`;
+  const headline = `${feature.name}: Built for ${targetAudienceName}`;
+  const subheadline = `${feature.tagline} 100% offline, zero monthly subscription traps, and engineered specifically for Indian retail.`;
 
-  // --- 4. AI Image Generation Prompt (Strict Real Screenshot Composite Rule) ---
+  const screenshotName = feature.screenshotFilename || "mobile-screen-1.png";
+
+  // --- 4. Cinema-Grade AI Image Generation Prompt (Midjourney v6.1 / FLUX.1 Pro) ---
   const imagePrompt = {
-    prompt: `Commercial advertising photography of a confident Indian ${audience.businessType} owner in their 30s standing behind an organized commercial checkout counter. The setting features ${visualStyle.visualKeywords}. The merchant is holding a modern smartphone angled toward the camera at 15 degrees. The device display shows a flat, neutral solid-color placeholder area reserved strictly for application screenshot overlay. Lighting: ${visualStyle.lightingKeywords}. Captured on 50mm f/1.8 prime lens, realistic skin tones, natural commercial grade, subtle crimson brand accent (#EF3035) on counter signage. Empty negative space in the upper 25% quadrant for bold headline typography. --ar ${aspectRatio}`,
-    textArea: `Top 25% of the frame: Clean neutral background with ample empty space reserved for overlaying headline: "${headline}".`,
-    screenshotInstruction: `REAL UI COMPOSITE DIRECTIVE: Do NOT instruct AI to draw or render the InvoiceFine software screen. In Figma or Canva, place the authentic InvoiceFine screenshot from assets/screenshots/ directly inside the phone or monitor display mockup.`,
-    negativePrompt: `fake app interface, hallucinated text on screen, distorted hands, six fingers, extra limbs, cartoon, 3D render, messy background, oversaturated neon, crypto aesthetics, plastic skin`,
+    prompt: `Cinematic commercial advertising photography of a confident Indian ${audience.businessType} owner in their early 30s standing behind a modern, well-organized retail store counter. The store environment exhibits ${visualStyle.visualKeywords}. The merchant is smiling warmly while holding a slim bezel-less Android smartphone, angled at 15 degrees toward the lens. The smartphone screen is a clean, neutral dark-grey placeholder with crisp edge tracking markers, reserved strictly for composite UI overlay. On the wooden counter sits a compact 58mm black thermal receipt printer with a printed bill rolling out cleanly. Lighting setup: ${visualStyle.lightingKeywords}, soft octabox key light with warm 3200K tungsten ambient shop glow, and a subtle crimson rim light (#EF3035) highlighting edge contours. Captured on Hasselblad H6D-100c with Zeiss Master Prime 50mm lens at f/2.0, ISO 100, 1/250s shutter, commercial film grade, high dynamic range, ultra-clean composition with the top 35% quadrant clear negative space for bold headline copy --ar ${aspectRatio} --v 6.1 --style raw`,
+    textArea: `Top 35% of the frame: High-contrast neutral zone with soft background bokeh, reserved for bold text overlay: "${headline}".`,
+    screenshotInstruction: `REAL UI COMPOSITE MANDATE: Never allow AI to draw or hallucinate the application screen. Use Adobe Photoshop, Figma, or Canva to composite the verified screenshot '${screenshotName}' from 'assets/screenshots/' onto the physical smartphone display mockup.`,
+    negativePrompt: `hallucinated app UI on screen, synthetic text on display, extra fingers, deformed hands, broken wrists, plastic skin, cartoon illustration, 3D CGI animation, dirty store floor, neon signs, cryptocurrency symbols, oversized futuristic holograms, messy cluttered wire mess`,
   };
 
-  // --- 5. AI Video Generation Prompt ---
+  // --- 5. Production-Ready AI Video Prompt (Runway Gen-3 Alpha / Kling 1.5) ---
   const scenes: VideoScene[] = [
     {
       sceneNumber: 1,
-      timeRange: "0:00 - 0:03",
-      visual: `Close-up shot of Indian ${targetAudienceName} experiencing friction: ${feature.problem}`,
-      camera: "Slow push-in with shallow depth of field, 35mm lens.",
-      action: "Merchant looks stressed checking manual paperwork, then spots smartphone.",
-      onScreenText: hook,
+      timeRange: "0:00 - 0:04",
+      visual: `Close-up shot of Indian ${targetAudienceName} experiencing friction: ${feature.problem}. Messy paper bills and desktop calculator on desk.`,
+      camera: "Slow steady dolly push-in, 35mm cinema lens, f/2.2.",
+      action: "Merchant rubs forehead in frustration over messy paperwork, then notices smartphone.",
+      onScreenText: primaryHook,
     },
     {
       sceneNumber: 2,
-      timeRange: "0:03 - 0:07",
-      visual: `Over-the-shoulder POV shot of merchant holding smartphone on store counter. Screen displays flat green mockup ready for real screen recording overlay.`,
-      camera: "Steady over-the-shoulder camera angle.",
-      action: `Merchant taps screen to activate ${feature.name}. Instant responsive feedback.`,
+      timeRange: "0:04 - 0:08",
+      visual: `Over-the-shoulder POV shot of hands holding smartphone over clean counter. Device display has matte placeholder for real screen recording.`,
+      camera: "Smooth floating over-the-shoulder tracking shot.",
+      action: `Merchant taps screen to activate ${feature.name}. Instant feedback on counter.`,
       onScreenText: `${feature.name} • 1-Tap Action`,
     },
     {
       sceneNumber: 3,
-      timeRange: "0:07 - 0:11",
-      visual: `Side macro shot of thermal printer or customer handover. Receipt feeds out smoothly; customer receives instant digital confirmation.`,
-      camera: "Smooth lateral tracking pan.",
-      action: `Customer smiles and scans UPI QR on bill. Seamless payment collection.`,
+      timeRange: "0:08 - 0:12",
+      visual: `Side macro shot of thermal printer buzzing. Crisp printed receipt cleanly emerges. Customer happily receives bill and scans UPI QR code.`,
+      camera: "Lateral tracking pan focusing on receipt printer and customer smile.",
+      action: "Payment confirmed in 2 seconds. Satisfied customer nods approvingly.",
       onScreenText: feature.benefit,
     },
     {
       sceneNumber: 4,
-      timeRange: "0:11 - 0:15",
-      visual: `Merchant smiling confidently at counter with neat store background. Clean graphic card with InvoiceFine crimson (#EF3035) logo.`,
-      camera: "Eye-level medium shot.",
-      action: "Thumbs-up from merchant, followed by animated download badge.",
-      onScreenText: `Download InvoiceFine Free • Android & Linux Desktop`,
+      timeRange: "0:12 - 0:15",
+      visual: `Confident merchant giving a thumbs-up behind an organized counter. Modern animated title card with InvoiceFine Crimson (#EF3035) branding.`,
+      camera: "Eye-level medium commercial shot pulling back smoothly.",
+      action: "Merchant smiles at camera, followed by Google Play Store download badge.",
+      onScreenText: `Download InvoiceFine Free • 100% Offline Billing`,
     },
   ];
 
   const voiceoverScripts: Record<string, string> = {
-    en: `Are billing bottlenecks slowing down your store? With InvoiceFine, you get ${feature.name} right in your pocket. ${feature.benefit}. Simple, fast, and completely offline-ready. Download InvoiceFine free today!`,
-    hinglish: `Dukaan ka hisaab ab hoga bilkul asaan! InvoiceFine ke ${feature.name} se aapko milta hai: ${feature.benefit}. Na internet ka jhanjhat, na calculation ki galti. Aaj hi download karein InvoiceFine free!`,
-    hi: `अपनी दुकान का काम बनाएं और भी तेज़ और आसान! इन्वॉयसफाइन के ${feature.name} फीचर से पाएं: ${feature.benefit}। बिना इंटरनेट के भी पूरी तरह काम करता है। आज ही डाउनलोड करें!`,
+    en: `Tired of slow billing and messy calculations during rush hours? Switch to InvoiceFine! With ${feature.name}, you get ${feature.benefit}. No internet required, no complicated setups. Download InvoiceFine free on Google Play today!`,
+    hinglish: `Dukaan par lambi line aur hisaab ki tension? Ab InvoiceFine ke ${feature.name} se bill banayein sirf 5 second mein! ${feature.benefit}. Na internet ka jhanjhat, na calculation ki galti. Aaj hi download karein InvoiceFine free!`,
+    hi: `दुकान में ग्राहकों की भीड़ और बिल बनाने में समय बर्बाद? इन्वॉयसफाइन के ${feature.name} फीचर से पाएं: ${feature.benefit}। बिना इंटरनेट के भी पूरी तरह काम करता है। आज ही डाउनलोड करें इन्वॉयसफाइन बिल्कुल मुफ्त!`,
   };
 
   const videoPrompt = {
@@ -148,285 +223,122 @@ export function generateContentPackage(params: GenerateParams): GeneratedContent
     visualStyle: visualStyle.name,
     scenes,
     voiceover: voiceoverScripts[langCode] || voiceoverScripts.en,
-    endingCta: `Download InvoiceFine Free • Link in Bio / Description`,
-    negativePrompt: `jittery frames, distorted fingers, hallucinated UI screens, morphing objects, flickering lighting, artificial CGI faces`,
+    endingCta: `Download InvoiceFine Free • Android & Linux Desktop`,
+    negativePrompt: `jittery frames, distorted fingers, hallucinated UI screens, morphing objects, flickering lighting, artificial CGI faces, floating digital screens`,
   };
 
-  // --- 6. Carousel (7 Slides Standard) ---
+  // --- 6. 7-Slide Strategic Carousel Framework ---
   const carouselSlides: CarouselSlide[] = [
     {
       slideNumber: 1,
-      headline: hook,
-      bodyText: `The modern 2-minute system for ${targetAudienceName} to master ${feature.name}. Swipe right to see how it works →`,
-      visualConcept: `Split contrast: Manual paper notebook on left vs clean smartphone mockup on right with crimson #EF3035 header pill.`,
-      imagePrompt: `Minimalist commercial studio layout. Left side shows a weathered paper notebook with a pen. Right side shows a modern smartphone frame with a clean blank screen. High-resolution studio lighting --ar 4:5`,
-      screenshotInstruction: `Place real InvoiceFine feature thumbnail inside the phone frame.`,
-      designDirection: `High-contrast bold headline (70pt), crimson red badge: "RETAIL GUIDE".`,
+      headline: primaryHook,
+      bodyText: `The 2-minute system for ${targetAudienceName} to master ${feature.name} and eliminate counter errors. Swipe right to see how it works →`,
+      visualConcept: `Minimalist high-contrast cover card with InvoiceFine crimson accent (#EF3035) badge and bold modern typography.`,
+      imagePrompt: `Minimalist commercial social media card with bold typography and InvoiceFine crimson red highlights on dark obsidian background.`,
+      screenshotInstruction: `None for cover slide.`,
+      designDirection: `Dark charcoal background (#121215), crimson highlight badge, clear swipe indicator.`,
     },
     {
       slideNumber: 2,
-      headline: `The Common Problem: ${feature.problem}`,
-      bodyText: `Every day, retail and commercial stores lose valuable time and revenue due to manual calculation errors, missing paper slips, and delayed customer payments.`,
-      visualConcept: `High-contrast callout card detailing the 3 biggest operational bottlenecks.`,
-      imagePrompt: `Editorial graphic card with soft warm gray tones, subtle red warning icon, clean typography grid --ar 4:5`,
-      screenshotInstruction: `No screenshot needed on this educational problem slide.`,
-      designDirection: `Red accent highlights on key pain point phrases.`,
+      headline: `The Daily Cost of ${feature.problem}`,
+      bodyText: `Traditional manual paper methods cause delayed billing, arithmetic errors, and customer disputes during peak evening rush hours.`,
+      visualConcept: `Side-by-side comparison icon showing time wasted vs money lost.`,
+      imagePrompt: `Flat vector comparison graphics illustrating lost retail revenue and time spent on manual ledger books.`,
+      screenshotInstruction: `None for problem slide.`,
+      designDirection: `Warning icon badge, high readability, clean bullet list.`,
     },
     {
       slideNumber: 3,
-      headline: `Why Traditional Methods Fail`,
-      bodyText: `Paper bahi-khatas tear, pocket calculators don't store audit history, and complex desktop software requires expensive training and internet connections.`,
-      visualConcept: `Illustration/photo of messy desk with calculator and scattered paper bills.`,
-      imagePrompt: `Authentic photograph of a cluttered billing desk with paper receipts, calculator, and notebook under dim warm lighting --ar 4:5`,
-      screenshotInstruction: `No screenshot needed on this context slide.`,
-      designDirection: `Muted dark charcoal background, clear white body text.`,
+      headline: `Why Old Desktop Software Fails`,
+      bodyText: `Bulky computers require continuous electricity, complex installation, and freeze whenever broadband or Wi-Fi goes down.`,
+      visualConcept: `Monochrome wireframe illustration of desktop computer tied down with heavy cables.`,
+      imagePrompt: `Modern clean graphic showing an outdated desktop billing machine with warning icon.`,
+      screenshotInstruction: `None for friction slide.`,
+      designDirection: `Cool slate grey tones contrasting with warm paper textures.`,
     },
     {
       slideNumber: 4,
-      headline: `Enter InvoiceFine: ${feature.name}`,
-      bodyText: `${feature.tagline}. Built from the ground up for Indian shopkeepers and independent merchants.`,
-      visualConcept: `Hero smartphone mockup displaying authentic InvoiceFine interface.`,
-      imagePrompt: `Clean modern phone mockup held by a merchant's hand against a neat store background --ar 4:5`,
-      screenshotInstruction: `COMPOSITE: Insert real screenshot of ${feature.name} from assets/screenshots/ into the display.`,
-      designDirection: `Clean white background, crimson accent pointers showing key feature buttons.`,
+      headline: `The Smart Solution: InvoiceFine`,
+      bodyText: `Transform your smartphone into a complete billing station and digital Khata that runs 100% offline on Android and Linux.`,
+      visualConcept: `Sleek smartphone mockup displaying verified InvoiceFine interface with soft glowing drop shadow.`,
+      imagePrompt: `Clean modern smartphone floating on retail counter background with blank screen for composite.`,
+      screenshotInstruction: `Composite '${screenshotName}' onto the mobile screen boundary.`,
+      screenshotFilename: screenshotName,
+      designDirection: `Floating device mockup holding verified screenshot: ${screenshotName}.`,
     },
     {
       slideNumber: 5,
-      headline: `How It Works in Daily Business`,
-      bodyText: `1. Select items or scan barcodes.\n2. Automatic tax splits & stock adjustments.\n3. One-tap receipt print or WhatsApp delivery.`,
-      visualConcept: `3-step horizontal workflow diagram with numbered circular badges.`,
-      imagePrompt: `Infographic background with three clean step cards, modern minimal aesthetic --ar 4:5`,
-      screenshotInstruction: `Crop and composite relevant feature input fields onto Step 2 card.`,
-      designDirection: `Numbered step pills in #EF3035, crisp sans-serif typography.`,
+      headline: `How ${feature.name} Works in 2 Taps`,
+      bodyText: `1. Select customer or items. 2. Tap finalize. ${feature.benefit} with zero manual arithmetic.`,
+      visualConcept: `Numbered step layout (1, 2, 3) with crisp typography and subtle micro-icons.`,
+      imagePrompt: `3-step horizontal workflow diagram with numbered crimson circles.`,
+      screenshotInstruction: `None for workflow step slide.`,
+      designDirection: `Clean white/dark card base with crimson step counter pills.`,
     },
     {
       slideNumber: 6,
-      headline: `The Real Business Benefit`,
-      bodyText: `${feature.benefit}. Spend less time on bookkeeping and more time growing your sales.`,
-      visualConcept: `Customer smiling at counter receiving digital invoice on phone.`,
-      imagePrompt: `Satisfied customer smiling at a clean retail store counter while checking their phone --ar 4:5`,
-      screenshotInstruction: `Place WhatsApp invoice PDF preview card in the lower corner.`,
-      designDirection: `Green checkmark icons, clean metric badges.`,
+      headline: `The Real Business Payoff`,
+      bodyText: `Save up to 45 minutes every single day, keep tamper-proof records, and close your shop with total peace of mind.`,
+      visualConcept: `Green verified checkmark badge surrounded by key retail metrics: '100% Private', '0 Monthly Fees', '100% Offline'.`,
+      imagePrompt: `Clean trust metric cards showcasing 100% offline, privacy, and zero monthly fees badges.`,
+      screenshotInstruction: `None for benefit slide.`,
+      designDirection: `Trust badge layout with soft green and crimson accents.`,
     },
     {
       slideNumber: 7,
-      headline: `Start Billing Smarter Today`,
-      bodyText: `Available completely free on Android mobile and Linux desktop workstations. 100% offline-ready.`,
-      visualConcept: `InvoiceFine brand card with official logo, download buttons, and save post reminder.`,
-      imagePrompt: `Clean brand splash background with InvoiceFine red accents, modern studio lighting --ar 4:5`,
-      screenshotInstruction: `Center official logo (assets/logo/invoicefine-logo.png).`,
-      designDirection: `Prominent CTA button: "Download Free • Link in Bio".`,
-      cta: `Save this post & Download InvoiceFine today!`,
+      headline: `Take Control of Your Shop Today`,
+      bodyText: `Download InvoiceFine free. No credit card required. Works 100% offline directly from your phone.`,
+      visualConcept: `Brand card featuring InvoiceFine official logo, Google Play Store badge, and direct call-to-action button.`,
+      imagePrompt: `Call to action card featuring InvoiceFine official logo and Google Play Store download badge.`,
+      screenshotInstruction: `None for final CTA slide.`,
+      designDirection: `Primary crimson button (#EF3035) with white bold lettering: 'Download Free on Google Play'.`,
+      cta: `Download InvoiceFine Free • Link in Bio / Description`,
     },
   ];
 
-  // --- 7. Reel Script ---
-  const reel: ReelPackage = {
-    hook,
+  // --- 7. High-Retention Reel & Shorts Package ---
+  const reelPackage: ReelPackage = {
+    hook: primaryHook,
     problem: feature.problem,
-    solution: `InvoiceFine provides an instant solution with ${feature.name}.`,
+    solution: `InvoiceFine provides instant ${feature.name} directly on your mobile device.`,
     feature: feature.name,
-    demonstration: `Watch the screen: Select item, verify details, and tap Print. Everything updates in real time.`,
+    demonstration: `Open app, select item, tax auto-calculates, tap print—complete receipt in 3 seconds.`,
     benefit: feature.benefit,
-    cta: `Download InvoiceFine free from the link in our bio!`,
-    coverText: `${feature.name}: 15-Second Guide`,
+    cta: `Download InvoiceFine Free on Google Play Store. Link in bio!`,
+    coverText: `${feature.name}: 5 Second Billing!`,
     voiceover: voiceoverScripts[langCode] || voiceoverScripts.en,
     onScreenText: [
-      hook,
-      `${feature.name} in Action`,
-      feature.benefit,
-      `100% Offline • Fast Billing`,
-      `Download InvoiceFine Today!`,
+      `Stop calculating bills by hand! ⏱️`,
+      `${feature.name} in 1 Tap 📲`,
+      `${feature.benefit} ⚡`,
+      `100% Offline • No Wi-Fi Needed 🛡️`,
+      `Download InvoiceFine Free 🚀`,
     ],
-    caption: `Dukaan ka hisaab ab hoga lightning fast! ⚡🧾\n\nInvoiceFine ke ${feature.name} ke saath:\n✅ ${feature.benefit}\n✅ 100% Offline bina internet ke chalta hai\n✅ Mobile aur Desktop dono par available\n\nLink bio mein hai — abhi download karein!`,
-    hashtags: `#InvoiceFine #${feature.id.replace(/-/g, "")} #BillingApp #SmartRetail #SmallBusinessIndia #POSSoftware`,
-    videoPrompt: videoPrompt.objective,
+    caption: `${primaryHook}\n\nSay goodbye to paper chaos and manual errors. With InvoiceFine's ${feature.name}, you get ${feature.benefit}.\n\n✅ 100% Offline\n✅ 0 Monthly Fees\n✅ Thermal Printer & A4 Support\n\n📲 Download free via the link in bio!\n\n#InvoiceFine #RetailBilling #${feature.name.replace(/\s+/g, "")}`,
+    hashtags: `#InvoiceFine #RetailBilling #SmallBusinessIndia #Shopkeeper #${feature.name.replace(/\s+/g, "")}`,
+    videoPrompt: `A 9:16 vertical commercial video showing a busy Indian shopkeeper transitioning from a stressful paper calculator to effortlessly printing bills via InvoiceFine on a mobile phone. Clean commercial look, realistic retail setting, warm lighting, 24fps.`,
   };
 
-  // --- 8. Captions ---
+  // --- 8. 6-Style Comprehensive Caption Bank ---
   const captions = {
-    short: langCode === "hi"
-      ? `इन्वॉयसफाइन के साथ अपनी दुकान का बिलिंग और हिसाब-किताब बनाएं और भी आसान! आज ही डाउनलोड करें।`
-      : langCode === "hinglish"
-      ? `Dukaan ka billing aur hisaab ab pocket mein! InvoiceFine ke saath ${feature.name} ka pura fayda uthayein. Link bio mein hai!`
-      : `Fast, reliable ${feature.name} built for modern small businesses. Download InvoiceFine free today. Link in bio!`,
-
-    medium: langCode === "hi"
-      ? `क्या आप अभी भी पुरानी डायरी और पर्चियों पर हिसाब रखते हैं?\n\nइन्वॉयसफाइन के **${feature.name}** से पाएं:\n• ${feature.benefit}\n• 100% ऑफलाइन काम करने की सुविधा\n• तेज़ और आसान बिलिंग\n\nआज ही डाउनलोड करें — लिंक बायो में उपलब्ध है!`
-      : langCode === "hinglish"
-      ? `Dukaan par bheed ho toh manual billing band kijiye! 🏪⚡\n\nInvoiceFine ka **${feature.name}** feature aapko deta hai:\n🔹 ${feature.benefit}\n🔹 100% Offline bina kisi server down ke\n🔹 One-tap print aur WhatsApp delivery\n\nApni dukaan ko banayein smart. Download link bio mein hai!`
-      : `Running a busy store? Stop relying on messy paper slips and manual calculators. 📊\n\nWith **${feature.name}** on InvoiceFine:\n• ${feature.benefit}\n• 100% offline-first architecture\n• Seamless mobile & desktop experience\n\nDownload free today via link in bio!`,
-
-    educational: langCode === "hi"
-      ? `व्यापार में समय की बचत ही मुनाफे की असली चाबी है।\n\nजब आप **${feature.name}** का इस्तेमाल करते हैं, तो आपकी बिलिंग में कोई गलती नहीं होती और ग्राहकों का भरोसा बढ़ता है।\n\n${feature.benefit}\n\nइस पोस्ट को सेव करें और अपने व्यापारी मित्रों के साथ साझा करें!`
-      : langCode === "hinglish"
-      ? `Dukaan mein time bachana hi real profit hai! 💡📈\n\nJab aap **${feature.name}** use karte hain toh:\n1️⃣ Calculation errors bilkul zero ho jaati hain\n2️⃣ Customer ka trust banta hai\n3️⃣ Tax filing ke time sab kuch organized rehta hai\n\nIs post ko SAVE karein aur InvoiceFine download karein!`
-      : `Why operational discipline is the #1 growth driver for modern retail:\n\nManual billing invites errors, lost invoices, and credit disputes. By digitizing ${feature.name}, you establish an unbreakable audit trail:\n\n• ${feature.benefit}\n• Instant transparent records\n• Greater customer trust\n\nSave this post for your store management & explore InvoiceFine!`,
-
-    sales: langCode === "hi"
-      ? `अपनी दुकान की बिलिंग को अपग्रेड करें! इन्वॉयसफाइन अभी डाउनलोड करें और पाएं आसान ${feature.name}।`
-      : langCode === "hinglish"
-      ? `Abhi download karein InvoiceFine aur apni dukaan ka checkout banayein 5 guna tez! Link bio mein hai.`
-      : `Upgrade your store counter today. Download InvoiceFine free on Android & Linux Desktop! Link in bio.`,
-
-    reel: reel.caption,
-    carousel: `Bookmark this guide! 📌\n\nEverything you need to know about ${feature.name} for Indian retail stores. Swipe through and save for your business!`,
+    short: `${primaryHook} With InvoiceFine's ${feature.name}, you get: ${feature.benefit}. 100% offline, zero monthly fees. Download free via link in bio!`,
+    medium: `${primaryHook}\n\nRunning a retail business in India is hard enough without billing bottlenecks and manual calculation mistakes.\n\nInvoiceFine's ${feature.name} lets you:\n• ${feature.benefit}\n• Operate 100% offline with zero internet dependencies\n• Keep your private business records safe on your own device\n\n📲 Tap the link in our bio to download InvoiceFine free on Google Play!`,
+    educational: `Retail Business Tip for ${targetAudienceName}:\n\nDid you know that manual calculation errors at checkout cost small shops an estimated 2–3% of monthly revenue?\n\nHere is how InvoiceFine's ${feature.name} solves this:\n1. Instant Accuracy: Automated tax splits and line totals eliminate human error.\n2. Customer Trust: Professional receipts (thermal or PDF) build lasting buyer loyalty.\n3. Complete Privacy: All transaction records remain strictly on your local device.\n\nSave this post for your store, or download InvoiceFine free today!`,
+    sales: `Tired of slow counter queues? Upgrade your checkout speed with InvoiceFine today!\n\n✨ Feature in focus: ${feature.name}\n🚀 Key Benefit: ${feature.benefit}\n🛡️ Architecture: 100% Offline (Works without Wi-Fi or mobile data)\n\nDownload InvoiceFine free on Google Play Store. Zero setup fees, zero hidden subscriptions!`,
+    reel: `Fast counter = Happy customers! 🧾⚡\n\nWatch how ${feature.name} simplifies everyday billing in under 5 seconds. No internet needed, no bulky computers.\n\n📲 Link in bio to install free!`,
+    carousel: `Swipe through to see how Indian shop owners are saving 45 minutes every evening with ${feature.name}. 👉\n\nWhich feature does your shop need the most? Let us know in the comments below!`,
   };
 
-  // --- 9. Call to Action (CTA) ---
-  const cta = `${goal.ctaFocus} • Download InvoiceFine on Android & Linux Desktop`;
-
-  // --- 10. Hashtags ---
-  const featureTag = `#${feature.name.replace(/[^a-zA-Z0-9]/g, "")}`;
-  const hashtags = [
-    "#InvoiceFine",
-    featureTag,
-    "#BillingApp",
-    "#SmartBilling",
-    "#POSSoftware",
-    "#SmallBusinessIndia",
-    "#IndianShopkeeper",
-    "#RetailBilling",
-    "#BusinessManagementApp",
-    "#VyaparIndia",
-  ];
-
-  // --- 11. Design Direction ---
-  const designDirection = {
-    palette: ["#EF3035 (Primary Crimson)", "#171717 (Deep Slate)", "#FFFFFF (Clean White)", "#F4F4F5 (Warm Neutral)"],
-    typography: "Headline: Inter/Outfit Bold (64-72pt). Body: Inter Regular (28-34pt). High contrast.",
-    layout: `${aspectRatio} canvas. Safe margins 80px. Top 25% reserved for headline. Center 50% for device mockup. Bottom 25% for CTA pill.`,
-    screenshotPlacement: `Use authentic screenshot from assets/screenshots/ matching ${feature.name}. Composite inside device screen at 100% clarity.`,
+  // --- 9. Categorized Hashtag Vault ---
+  const hashtags = {
+    general: `#InvoiceFine #ProCSCTools #BusinessSoftware #RetailTech #BillingApp #KhataBook`,
+    featureSpecific: `#${feature.name.replace(/\s+/g, "")} #GSTBilling #ThermalPrinting #StockManagement #CustomerLedger #OfflineBilling`,
+    retail: `#KiranaStore #RetailIndia #IndianRetailer #Shopkeeper #Vyapar #DukaanHisaab #MSMEIndia`,
+    combined: `#InvoiceFine #${feature.name.replace(/\s+/g, "")} #GSTBilling #RetailIndia #SmallBusinessIndia #KiranaStore #ShopManagement #Vyapar`,
   };
-
-  const negativePrompt = imagePrompt.negativePrompt;
-
-  // --- 12. Full Content Text for 1-Click Copy ---
-  const fullContentText = `============================================================
-INVOICEFINE SOCIAL MEDIA CONTENT PACKAGE
-============================================================
-FEATURE:      ${feature.name} (${feature.category})
-CONTENT TYPE: ${contentType.name}
-PLATFORM:     ${platform.name}
-LANGUAGE:     ${language.name}
-AUDIENCE:     ${targetAudienceName}
-VISUAL STYLE: ${visualStyle.name}
-GOAL:         ${goal.name}
-ASPECT RATIO: ${aspectRatio}
-DURATION:     ${videoDuration}
-
-------------------------------------------------------------
-[1] CONCEPT & ANGLE
-------------------------------------------------------------
-${concept}
-
-------------------------------------------------------------
-[2] HOOK (FIRST 1-3 SECONDS)
-------------------------------------------------------------
-"${hook}"
-
-------------------------------------------------------------
-[3] HEADLINE & SUBHEADLINE
-------------------------------------------------------------
-HEADLINE:    ${headline}
-SUBHEADLINE: ${subheadline}
-
-------------------------------------------------------------
-[4] AI IMAGE GENERATION PROMPT (Midjourney / FLUX / DALL-E)
-------------------------------------------------------------
-PROMPT:
-${imagePrompt.prompt}
-
-TEXT AREA:
-${imagePrompt.textArea}
-
-SCREENSHOT DIRECTIVE:
-${imagePrompt.screenshotInstruction}
-
-NEGATIVE PROMPT:
-${imagePrompt.negativePrompt}
-
-------------------------------------------------------------
-[5] AI VIDEO GENERATION PROMPT (Runway / Kling / Luma)
-------------------------------------------------------------
-OBJECTIVE: ${videoPrompt.objective}
-DURATION:  ${videoPrompt.duration} | RATIO: ${videoPrompt.aspectRatio}
-
-${videoPrompt.scenes
-  .map(
-    (s) =>
-      `SCENE ${s.sceneNumber} (${s.timeRange}):
-Visual: ${s.visual}
-Camera: ${s.camera}
-Action: ${s.action}
-On-Screen Text: "${s.onScreenText}"`
-  )
-  .join("\n\n")}
-
-VOICE-OVER SCRIPT:
-"${videoPrompt.voiceover}"
-
-ENDING CTA:
-"${videoPrompt.endingCta}"
-
-NEGATIVE PROMPT:
-${videoPrompt.negativePrompt}
-
-------------------------------------------------------------
-[6] CAROUSEL STRUCTURE (7 SLIDES)
-------------------------------------------------------------
-${carouselSlides
-  .map(
-    (cs) =>
-      `SLIDE ${cs.slideNumber}: ${cs.headline}
-Body: ${cs.bodyText}
-Visual: ${cs.visualConcept}
-Directive: ${cs.screenshotInstruction}`
-  )
-  .join("\n\n")}
-
-------------------------------------------------------------
-[7] REEL & SHORT-FORM SCRIPT
-------------------------------------------------------------
-HOOK:          ${reel.hook}
-PROBLEM:       ${reel.problem}
-SOLUTION:      ${reel.solution}
-DEMO:          ${reel.demonstration}
-BENEFIT:       ${reel.benefit}
-VOICEOVER:     "${reel.voiceover}"
-ON-SCREEN:     ${reel.onScreenText.join(" | ")}
-
-------------------------------------------------------------
-[8] CAPTIONS
-------------------------------------------------------------
-[SHORT CAPTION]:
-${captions.short}
-
-[MEDIUM CAPTION]:
-${captions.medium}
-
-[EDUCATIONAL CAPTION]:
-${captions.educational}
-
-------------------------------------------------------------
-[9] CALL TO ACTION & HASHTAGS
-------------------------------------------------------------
-CTA: ${cta}
-
-HASHTAGS:
-${hashtags.join(" ")}
-
-------------------------------------------------------------
-[10] DESIGN DIRECTION
-------------------------------------------------------------
-Brand Colors: ${designDirection.palette.join(", ")}
-Typography:   ${designDirection.typography}
-Layout Specs: ${designDirection.layout}
-UI Placement: ${designDirection.screenshotPlacement}
-============================================================`;
 
   return {
-    id: "gen-" + Date.now().toString(36) + Math.random().toString(36).slice(2, 6),
+    id: `pkg_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`,
     timestamp: Date.now(),
     inputs: {
       feature,
@@ -441,7 +353,7 @@ UI Placement: ${designDirection.screenshotPlacement}
       aspectRatio,
     },
     concept,
-    hook,
+    hook: primaryHook,
     headline,
     subheadline,
     imagePrompt,
@@ -450,12 +362,10 @@ UI Placement: ${designDirection.screenshotPlacement}
       totalSlides: carouselSlides.length,
       slides: carouselSlides,
     },
-    reel,
+    reel: reelPackage,
     captions,
-    cta,
     hashtags,
-    designDirection,
-    negativePrompt,
-    fullContentText,
+    cta: `Download InvoiceFine Free • Android & Linux Desktop`,
+    negativePrompt: imagePrompt.negativePrompt,
   };
 }

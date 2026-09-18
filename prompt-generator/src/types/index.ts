@@ -9,9 +9,11 @@ export interface Feature {
   name: string;
   category: "Billing" | "Customers" | "Inventory" | "Printing" | "Reports" | "General" | "Planned";
   tagline: string;
+  summary?: string;
   problem: string;
   benefit: string;
   keywords: string[];
+  screenshotFilename?: string;
   isComingSoon?: boolean;
 }
 
@@ -40,6 +42,7 @@ export interface Language {
   name: string;
   nativeName: string;
   description: string;
+  toneGuideline?: string;
 }
 
 export interface Audience {
@@ -70,8 +73,9 @@ export interface CarouselSlide {
   headline: string;
   bodyText: string;
   visualConcept: string;
-  imagePrompt: string;
-  screenshotInstruction: string;
+  imagePrompt?: string;
+  screenshotInstruction?: string;
+  screenshotFilename?: string;
   designDirection: string;
   cta?: string;
 }
@@ -99,6 +103,13 @@ export interface ReelPackage {
   caption: string;
   hashtags: string;
   videoPrompt: string;
+}
+
+export interface HashtagVault {
+  general: string;
+  featureSpecific: string;
+  retail: string;
+  combined: string;
 }
 
 export interface GeneratedContentPackage {
@@ -150,15 +161,15 @@ export interface GeneratedContentPackage {
     carousel: string;
   };
   cta: string;
-  hashtags: string[];
-  designDirection: {
+  hashtags: HashtagVault;
+  designDirection?: {
     palette: string[];
     typography: string;
     layout: string;
     screenshotPlacement: string;
   };
   negativePrompt: string;
-  fullContentText: string;
+  fullContentText?: string;
 }
 
 export interface SavedPrompt {
@@ -172,6 +183,7 @@ export interface SavedPrompt {
 export interface Preset {
   id: string;
   name: string;
+  title?: string;
   description: string;
   icon: string;
   badge?: string;
@@ -183,7 +195,7 @@ export interface Preset {
     audienceId: string;
     visualStyleId: string;
     goalId: string;
-    videoDuration?: VideoDuration;
     aspectRatio: AspectRatio;
+    videoDuration?: VideoDuration;
   };
 }

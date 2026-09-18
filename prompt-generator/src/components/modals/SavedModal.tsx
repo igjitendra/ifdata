@@ -138,7 +138,7 @@ export const SavedModal: React.FC<SavedModalProps> = ({
                     <div className="flex items-center gap-2 self-end sm:self-auto flex-shrink-0">
                       <button
                         type="button"
-                        onClick={() => handleCopyText(item.data.fullContentText, item.id)}
+                        onClick={() => handleCopyText(item.data.fullContentText || item.data.concept, item.id)}
                         className="p-1.5 rounded-lg border border-zinc-200 dark:border-zinc-700 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-600 dark:text-zinc-300 text-xs flex items-center gap-1"
                         title="Copy full text"
                       >
