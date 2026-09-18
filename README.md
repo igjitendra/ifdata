@@ -21,7 +21,7 @@
 
 | [Downloads](DOWNLOADS.md) | [Releases](RELEASES.md) | [Features](FEATURES.md) | [Mobile App](MOBILE-APP.md) | [Desktop App](DESKTOP-APP.md) |
 |---|---|---|---|---|
-| [Screenshots](SCREENSHOTS.md) | [Videos](VIDEOS.md) | [Media Assets](MEDIA-ASSETS.md) | [FAQ](FAQ.md) | [Support](SUPPORT.md) |
+| [Screenshots](SCREENSHOTS.md) | [Videos](VIDEOS.md) | [Media Assets](MEDIA-ASSETS.md) | [Social Media Hub](SOCIAL-MEDIA.md) | [Support](SUPPORT.md) |
 
 ---
 
@@ -118,6 +118,7 @@ Learn how to get started, set up your business profile, generate your first invo
 - 💻 **[Desktop App Guide (DESKTOP-APP.md)](DESKTOP-APP.md)**: Installation commands, package setup, updating, and troubleshooting.
 - 📦 **[Releases & History (RELEASES.md)](RELEASES.md)**: Release highlights, version notes, and historical packages.
 - 🎨 **[Media & Branding Assets (MEDIA-ASSETS.md)](MEDIA-ASSETS.md)**: High-resolution logos, banners, and app icons.
+- 📢 **[Social Media Content & Prompt Library (SOCIAL-MEDIA.md)](SOCIAL-MEDIA.md)**: Production-ready social media content calendar, AI image & video prompts, reels, carousels, and captions.
 - ❓ **[Frequently Asked Questions (FAQ.md)](FAQ.md)**: Common questions regarding GST, offline usage, data privacy, and printing.
 - 🔒 **[Privacy Information (PRIVACY.md)](PRIVACY.md)**: Offline data policy, local storage architecture, and data control.
 - 🛟 **[Support & Inquiries (SUPPORT.md)](SUPPORT.md)**: Contact channels, bug reporting, and feature suggestions.
