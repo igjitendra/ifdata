@@ -1,0 +1,88 @@
+import { Audience } from "@/types";
+
+export const AUDIENCES: Audience[] = [
+  {
+    id: "kirana",
+    name: "Kirana & Grocery Store Owner",
+    businessType: "Retail Groceries & FMCG",
+    context: "Busy daily checkout counter with hundreds of fast-moving items, mixed taxable goods, and neighborhood credit customers.",
+    painPoint: "Long evening queues, calculation errors on manual calculators, and uncollected udhaar.",
+  },
+  {
+    id: "retail",
+    name: "General Retail Shop Owner",
+    businessType: "Consumer Retail",
+    context: "Walk-in store counter selling consumer goods, accessories, household wares, or gifts.",
+    painPoint: "Slow manual billing slips and messy paper filing during tax season.",
+  },
+  {
+    id: "electronics",
+    name: "Electronics & Mobile Shop Owner",
+    businessType: "Gadgets & Spares",
+    context: "High-value products with model numbers, serial barcodes, warranties, and volatile distributor prices.",
+    painPoint: "Dead stock sitting on shelves and not knowing exact purchase cost vs current selling margins.",
+  },
+  {
+    id: "clothing",
+    name: "Clothing & Apparel Store Owner",
+    businessType: "Fashion & Garments",
+    context: "Boutiques and readymade garment shops tracking sizes, colors, and seasonal discount clearances.",
+    painPoint: "Untracked discount deductions and lack of branded, professional receipts.",
+  },
+  {
+    id: "hardware",
+    name: "Hardware & Sanitary Store Owner",
+    businessType: "Industrial & Construction Goods",
+    context: "Bulk goods, pipes, fittings, electrical supplies sold to local contractors on 15–30 day credit.",
+    painPoint: "Contractors disputing old unpaid balances and forgotten cash settlements.",
+  },
+  {
+    id: "mobile-repair",
+    name: "Mobile & Computer Repair Shop",
+    businessType: "Technical Repair & Parts",
+    context: "Selling spare hardware parts (with stock tracking) combined with technician service labor.",
+    painPoint: "Inability to combine parts with service labor charges on a single compliant invoice.",
+  },
+  {
+    id: "small-business",
+    name: "Small Business Proprietor / SME",
+    businessType: "Multi-disciplinary Trade",
+    context: "Growing business owner balancing procurement, sales, customer relationships, and tax filing.",
+    painPoint: "Too many fragmented tools and spreadsheets causing operational confusion.",
+  },
+  {
+    id: "service-provider",
+    name: "Service Provider / Contractor",
+    businessType: "Commercial & Home Services",
+    context: "Electricians, plumbers, AC technicians, AMC service contractors issuing invoices on site.",
+    painPoint: "Carrying bulky paperwork to client sites and delayed client payments.",
+  },
+  {
+    id: "freelancer",
+    name: "Freelancer & Consultant",
+    businessType: "Professional Knowledge Services",
+    context: "Individual creators, consultants, and agencies issuing professional tax quotes and invoices.",
+    painPoint: "Unprofessional Word/Excel invoice designs and tracking overdue milestones.",
+  },
+  {
+    id: "wholesaler",
+    name: "Wholesaler & B2B Distributor",
+    businessType: "B2B Wholesale Trade",
+    context: "High-volume carton shipments, bulk orders, interstate IGST compliance, and large credit books.",
+    painPoint: "Managing large credit balances across retail buyers and retyping quotes into invoices.",
+  },
+  {
+    id: "gst-registered",
+    name: "GST Registered Business",
+    businessType: "Tax-Compliant Enterprise",
+    context: "Businesses maintaining strict compliance with CGST, SGST, IGST, and HSN/SAC reporting.",
+    painPoint: "Tax calculation errors leading to penalties or difficult reconciliation during filing.",
+  },
+  {
+    id: "local-retailer",
+    name: "Local Tier-2 / Tier-3 Merchant",
+    businessType: "Regional Retail",
+    context: "Store owners operating in regional markets with periodic broadband outages and reliance on local trust.",
+    painPoint: "Cloud billing tools that freeze during power cuts or internet signal drops.",
+  },
+];
