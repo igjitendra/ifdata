@@ -71,13 +71,13 @@ export function clearHistory(): void {
 }
 
 export function getStoredTheme(): "light" | "dark" {
-  if (typeof window === "undefined") return "light";
+  if (typeof window === "undefined") return "dark";
   try {
     const t = localStorage.getItem(STORAGE_KEYS.THEME);
     if (t === "dark" || t === "light") return t;
-    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    return "dark"; // Default to dark mode
   } catch {
-    return "light";
+    return "dark";
   }
 }
 

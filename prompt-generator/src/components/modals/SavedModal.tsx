@@ -70,7 +70,7 @@ export const SavedModal: React.FC<SavedModalProps> = ({
                     : "text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white"
                 }`}
               >
-                <Star className="w-3.5 h-3.5 text-amber-500 fill-amber-500" />
+                <Star className="w-3.5 h-3.5 text-[#EF3035] fill-[#EF3035]" />
                 <span>Saved Favorites ({savedPrompts.length})</span>
               </button>
 
@@ -152,10 +152,10 @@ export const SavedModal: React.FC<SavedModalProps> = ({
                       <button
                         type="button"
                         onClick={() => handleToggleFavorite(item.id)}
-                        className="p-1.5 rounded-lg border border-zinc-200 dark:border-zinc-700 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-amber-500"
+                        className="p-1.5 rounded-lg border border-zinc-200 dark:border-zinc-700 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-[#EF3035]"
                         title="Toggle favorite"
                       >
-                        <Star className={`w-3.5 h-3.5 ${item.isFavorite ? "fill-amber-500" : ""}`} />
+                        <Star className={`w-3.5 h-3.5 ${item.isFavorite ? "fill-[#EF3035]" : ""}`} />
                       </button>
 
                       <button

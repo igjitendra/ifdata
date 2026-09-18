@@ -45,8 +45,8 @@ import {
 } from "@/lib/storage";
 
 export default function Home() {
-  // Theme state
-  const [theme, setTheme] = useState<"light" | "dark">("light");
+  // Theme state (default: dark)
+  const [theme, setTheme] = useState<"light" | "dark">("dark");
 
   // Mobile View Switcher Tab ('setup' | 'output')
   const [mobileView, setMobileView] = useState<"setup" | "output">("setup");
@@ -278,7 +278,6 @@ export default function Home() {
       {/* 1-Click Preset Bar */}
       <PresetBar
         onSelectPreset={handleSelectPreset}
-        onSurpriseMe={handleSurpriseMe}
         activePresetId={activePresetId}
       />
 

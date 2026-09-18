@@ -99,7 +99,7 @@ export const Header: React.FC<HeaderProps> = ({
             onClick={onOpenSaved}
             className="relative inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 text-xs font-semibold rounded-xl text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-850 transition-colors cursor-pointer"
           >
-            <Star className="w-3.5 h-3.5 text-amber-500 fill-amber-500/20" />
+            <Star className="w-3.5 h-3.5 text-[#EF3035] fill-[#EF3035]/20" />
             <span className="hidden sm:inline">Saved</span>
             {savedCount > 0 && (
               <span className="w-4 h-4 rounded-full bg-[#EF3035] text-white text-[9px] font-black flex items-center justify-center shadow-xs">
@@ -146,14 +146,17 @@ export const Header: React.FC<HeaderProps> = ({
           <button
             type="button"
             onClick={onToggleTheme}
-            className="p-2 rounded-xl text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-850 border border-zinc-200/80 dark:border-zinc-800 transition-all active:scale-95 cursor-pointer"
+            className="p-2 rounded-xl text-zinc-600 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 border border-zinc-200/80 dark:border-zinc-800 transition-all active:scale-95 cursor-pointer flex items-center gap-1.5"
             title={`Switch to ${theme === "dark" ? "Light" : "Dark"} Mode`}
           >
             {theme === "dark" ? (
-              <Sun className="w-4 h-4 text-amber-400" />
+              <Sun className="w-4 h-4 text-zinc-100" />
             ) : (
-              <Moon className="w-4 h-4 text-zinc-700" />
+              <Moon className="w-4 h-4 text-zinc-900" />
             )}
+            <span className="text-[11px] font-bold hidden xl:inline">
+              {theme === "dark" ? "Dark" : "Light"}
+            </span>
           </button>
         </div>
       </div>

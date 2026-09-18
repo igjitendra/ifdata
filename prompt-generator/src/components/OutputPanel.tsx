@@ -136,12 +136,12 @@ export const OutputPanel: React.FC<OutputPanelProps> = ({
             onClick={() => onSaveFavorite(pkg)}
             className={`p-2 rounded-xl border text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer ${
               isFavorite
-                ? "bg-amber-500/10 border-amber-500/40 text-amber-500"
+                ? "bg-red-500/10 border-red-500/40 text-[#EF3035]"
                 : "border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-700"
             }`}
             title="Save to Favorites"
           >
-            <Star className={`w-4 h-4 ${isFavorite ? "fill-amber-500" : ""}`} />
+            <Star className={`w-4 h-4 ${isFavorite ? "fill-[#EF3035] text-[#EF3035]" : ""}`} />
             <span className="hidden sm:inline">{isFavorite ? "Saved" : "Save"}</span>
           </button>
 
@@ -245,7 +245,7 @@ export const OutputPanel: React.FC<OutputPanelProps> = ({
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
             {/* Realistic Phone Bezel */}
             <div className="lg:col-span-6 flex justify-center">
-              <div className="w-full max-w-[340px] sm:max-w-[360px] rounded-[42px] border-[6px] border-zinc-900 dark:border-zinc-700 bg-black p-2.5 shadow-2xl transition-all">
+              <div className="w-full max-w-[310px] xs:max-w-[330px] sm:max-w-[360px] rounded-[38px] sm:rounded-[42px] border-[5px] sm:border-[6px] border-zinc-900 dark:border-zinc-700 bg-black p-2 sm:p-2.5 shadow-2xl transition-all">
                 {/* Dynamic Island / Punch Hole */}
                 <div className="w-24 h-4 bg-zinc-900 rounded-full mx-auto mb-2 flex items-center justify-between px-2">
                   <div className="w-2 h-2 rounded-full bg-zinc-950 border border-zinc-800" />

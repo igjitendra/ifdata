@@ -199,8 +199,8 @@ export const StepWorkflow: React.FC<StepWorkflowProps> = ({
             </div>
           </div>
 
-          {/* Feature Quick Selection Cloud (Spacious, No Awkward Truncation) */}
-          <div className="grid grid-cols-2 gap-2 max-h-44 overflow-y-auto pr-1">
+          {/* Feature Quick Selection Cloud (1 Col on Mobile, 2 Col on Desktop) */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 max-h-52 overflow-y-auto pr-1">
             {filteredFeatures.map((f) => {
               const isSelected = selectedFeature.id === f.id;
               return (

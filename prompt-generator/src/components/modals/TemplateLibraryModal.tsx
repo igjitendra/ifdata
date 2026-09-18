@@ -53,7 +53,7 @@ export const TemplateLibraryModal: React.FC<TemplateLibraryModalProps> = ({ isOp
     },
     {
       title: "Content Tone & Linguistic Frameworks",
-      icon: <FileText className="w-4 h-4 text-amber-500" />,
+      icon: <FileText className="w-4 h-4 text-[#EF3035]" />,
       description: "Natural localized copy crafted without spammy buzzwords or robotic machine translations.",
       examples: [
         "Hinglish (Natural daily shopkeeper communication)",

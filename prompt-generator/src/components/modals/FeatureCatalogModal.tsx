@@ -116,7 +116,7 @@ export const FeatureCatalogModal: React.FC<FeatureCatalogModalProps> = ({
                         {f.name}
                       </h3>
                       {f.isComingSoon && (
-                        <span className="inline-flex items-center gap-1 text-[10px] font-bold px-1.5 py-0.5 rounded bg-amber-100 dark:bg-amber-950/60 text-amber-700 dark:text-amber-400 border border-amber-300/40">
+                        <span className="inline-flex items-center gap-1 text-[10px] font-bold px-1.5 py-0.5 rounded bg-red-100 dark:bg-red-950/60 text-[#EF3035] dark:text-red-400 border border-red-300/40">
                           <AlertCircle className="w-2.5 h-2.5" />
                           Coming Soon
                         </span>

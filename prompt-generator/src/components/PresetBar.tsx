@@ -2,7 +2,6 @@
 
 import React from "react";
 import {
-  Dices,
   Image as ImageIcon,
   Video,
   Layers,
@@ -18,13 +17,11 @@ import { Preset } from "@/types";
 
 interface PresetBarProps {
   onSelectPreset: (preset: Preset) => void;
-  onSurpriseMe: () => void;
   activePresetId?: string;
 }
 
 export const PresetBar: React.FC<PresetBarProps> = ({
   onSelectPreset,
-  onSurpriseMe,
   activePresetId,
 }) => {
   const getIcon = (name: string) => {
@@ -62,17 +59,6 @@ export const PresetBar: React.FC<PresetBarProps> = ({
           </div>
 
           <div className="flex items-center gap-2 overflow-x-auto no-scrollbar py-1 flex-1 scroll-smooth">
-            {/* Surprise Me Button in InvoiceFine Crimson Red */}
-            <button
-              type="button"
-              onClick={onSurpriseMe}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-black rounded-xl bg-gradient-to-r from-[#EF3035] via-red-600 to-rose-700 text-white hover:opacity-95 shadow-xs shadow-red-500/25 transition-all active:scale-95 flex-shrink-0 cursor-pointer"
-              title="Randomize features and styles"
-            >
-              <Dices className="w-3.5 h-3.5" />
-              <span>Surprise Me!</span>
-            </button>
-
             {/* Presets List in harmonious brand styling */}
             {PRESETS.map((p) => {
               const isSelected = activePresetId === p.id;
