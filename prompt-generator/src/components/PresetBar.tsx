@@ -53,7 +53,7 @@ export const PresetBar: React.FC<PresetBarProps> = ({
   };
 
   return (
-    <div className="w-full py-2.5 sm:py-3 border-b border-zinc-200/80 dark:border-zinc-850 bg-white/70 dark:bg-zinc-950/60 backdrop-blur-md transition-colors">
+    <div className="w-full py-2.5 sm:py-3 border-b border-zinc-200/80 dark:border-zinc-850 bg-zinc-50/80 dark:bg-zinc-950/60 backdrop-blur-md transition-colors">
       <div className="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8">
         <div className="flex items-center gap-2.5">
           <div className="flex items-center gap-1.5 text-[11px] font-extrabold text-zinc-500 dark:text-zinc-400 uppercase tracking-wider flex-shrink-0">
@@ -62,18 +62,18 @@ export const PresetBar: React.FC<PresetBarProps> = ({
           </div>
 
           <div className="flex items-center gap-2 overflow-x-auto no-scrollbar py-1 flex-1 scroll-smooth">
-            {/* Surprise Me Button with Glow */}
+            {/* Surprise Me Button in InvoiceFine Crimson Red */}
             <button
               type="button"
               onClick={onSurpriseMe}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-extrabold rounded-xl bg-gradient-to-r from-amber-500 via-orange-500 to-[#EF3035] text-white hover:opacity-95 shadow-xs shadow-orange-500/20 transition-all active:scale-95 flex-shrink-0 cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-black rounded-xl bg-gradient-to-r from-[#EF3035] via-red-600 to-rose-700 text-white hover:opacity-95 shadow-xs shadow-red-500/25 transition-all active:scale-95 flex-shrink-0 cursor-pointer"
               title="Randomize features and styles"
             >
-              <Dices className="w-3.5 h-3.5 animate-spin-hover" />
+              <Dices className="w-3.5 h-3.5" />
               <span>Surprise Me!</span>
             </button>
 
-            {/* Presets List */}
+            {/* Presets List in harmonious brand styling */}
             {PRESETS.map((p) => {
               const isSelected = activePresetId === p.id;
               return (
@@ -81,21 +81,21 @@ export const PresetBar: React.FC<PresetBarProps> = ({
                   key={p.id}
                   type="button"
                   onClick={() => onSelectPreset(p)}
-                  className={`inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-xl border transition-all flex-shrink-0 cursor-pointer active:scale-95 ${
+                  className={`inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold rounded-xl border transition-all flex-shrink-0 cursor-pointer active:scale-95 ${
                     isSelected
-                      ? "border-[#EF3035] bg-red-500/10 text-[#EF3035] shadow-xs shadow-red-500/10"
-                      : "border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900/80 text-zinc-700 dark:text-zinc-300 hover:border-red-400/80 dark:hover:border-red-500/50 hover:text-[#EF3035] dark:hover:text-red-400 shadow-2xs"
+                      ? "border-[#EF3035] bg-[#EF3035] text-white shadow-xs shadow-red-500/20"
+                      : "border-zinc-200/90 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300 hover:border-red-400/80 dark:hover:border-red-500/50 hover:text-[#EF3035] dark:hover:text-red-400 shadow-2xs"
                   }`}
                 >
-                  <span className={isSelected ? "text-[#EF3035]" : "text-zinc-500 dark:text-zinc-400"}>
+                  <span className={isSelected ? "text-white" : "text-zinc-500 dark:text-zinc-400"}>
                     {getIcon(p.icon)}
                   </span>
                   <span>{p.name || p.title}</span>
                   {p.badge && (
                     <span
-                      className={`text-[9px] font-extrabold px-1.5 py-0.2 rounded-md ${
+                      className={`text-[9px] font-black px-1.5 py-0.2 rounded-md ${
                         isSelected
-                          ? "bg-[#EF3035] text-white"
+                          ? "bg-white/20 text-white"
                           : "bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400"
                       }`}
                     >

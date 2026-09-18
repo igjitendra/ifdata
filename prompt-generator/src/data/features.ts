@@ -10,6 +10,7 @@ export const FEATURES: Feature[] = [
     problem: "Calculating tax splits manually slows down counter checkout and causes costly tax filing errors.",
     benefit: "Automatic tax determination by buyer state, item tax slabs, and instant compliance.",
     keywords: ["GST", "Tax Invoice", "B2B", "B2C", "Tax Split", "CGST", "SGST", "IGST"],
+    screenshotFilename: "mobile/mobile-screen-1.png",
   },
   {
     id: "non-gst-billing",
@@ -19,6 +20,7 @@ export const FEATURES: Feature[] = [
     problem: "Small shops and composition dealers get overwhelmed with unnecessary tax fields.",
     benefit: "1-tap non-tax retail slip generation with store branding and contact details.",
     keywords: ["Non-GST", "Cash Memo", "Retail Slip", "Composition Scheme", "Simple Billing"],
+    screenshotFilename: "mobile/mobile-screen-1.png",
   },
   {
     id: "cgst-sgst-split",
@@ -28,6 +30,7 @@ export const FEATURES: Feature[] = [
     problem: "Confusion over dividing 5%, 12%, 18%, 28% tax rates between central and state governments.",
     benefit: "InvoiceFine splits intra-state taxes into exact CGST and SGST halves automatically.",
     keywords: ["CGST", "SGST", "Intra-State", "Local Tax", "Tax Division"],
+    screenshotFilename: "mobile/mobile-screen-1.png",
   },
   {
     id: "igst-interstate",
@@ -37,6 +40,7 @@ export const FEATURES: Feature[] = [
     problem: "Charging local CGST+SGST on out-of-state buyers violates GST rules and causes penalties.",
     benefit: "Detects customer state code from GSTIN and applies single-rate IGST automatically.",
     keywords: ["IGST", "Inter-State", "Cross-State", "Integrated GST", "Out of State"],
+    screenshotFilename: "mobile/mobile-screen-1.png",
   },
   {
     id: "gstin-lookup",
@@ -46,6 +50,7 @@ export const FEATURES: Feature[] = [
     problem: "Manual typing of state codes and buyer tax IDs leads to rejected e-invoices and GST mismatches.",
     benefit: "Validates 15-digit GSTIN pattern and automatically populates customer State.",
     keywords: ["GSTIN", "Tax ID", "State Code", "Verification", "B2B Buyer"],
+    screenshotFilename: "mobile/mobile-screen-1.png",
   },
   {
     id: "estimates-quotations",
@@ -55,6 +60,7 @@ export const FEATURES: Feature[] = [
     problem: "Retyping 20 line items from an approved price quotation into a sales invoice wastes time.",
     benefit: "One-click conversion from accepted quotation to confirmed invoice with automatic stock deduction.",
     keywords: ["Estimate", "Quotation", "Price Quote", "Convert to Invoice", "Sales Offer"],
+    screenshotFilename: "mobile/mobile-screen-1.png",
   },
   {
     id: "invoice-templates",
@@ -64,6 +70,7 @@ export const FEATURES: Feature[] = [
     problem: "Ugly, poorly formatted invoices hurt small store reputation and customer trust.",
     benefit: "Switch between 5 polished graphic templates with store logo, colors, and UPI QR code.",
     keywords: ["Invoice Templates", "Classic", "Modern", "Compact", "Professional", "Premium", "Design"],
+    screenshotFilename: "mobile/mobile-ready.png",
   },
   {
     id: "pdf-invoice",
@@ -73,6 +80,7 @@ export const FEATURES: Feature[] = [
     problem: "Customers lose thermal paper slips, and paper-only billing wastes thousands on printing stationery.",
     benefit: "Generate crystal-clear, shareable PDF invoices in seconds on mobile or desktop.",
     keywords: ["PDF Invoice", "Paperless", "Digital Bill", "A4 PDF", "Download Bill"],
+    screenshotFilename: "mobile/mobile-ready.png",
   },
 
   // --- Customers & Khata ---
@@ -84,6 +92,7 @@ export const FEATURES: Feature[] = [
     problem: "Searching for customer phone numbers, addresses, and purchase history across loose diaries.",
     benefit: "Instant searchable directory with complete transaction history and live balances.",
     keywords: ["Customer Directory", "Customer Management", "Contact Book", "Address Book"],
+    screenshotFilename: "mobile/mobile-screen-2.png",
   },
   {
     id: "customer-ledger",
@@ -93,6 +102,7 @@ export const FEATURES: Feature[] = [
     problem: "Customers dispute unpaid dues, claiming they already settled cash without a receipt.",
     benefit: "100% transparent digital ledger with date-wise entries, eliminating payment arguments.",
     keywords: ["Customer Ledger", "Bahi Khata", "Digital Khata", "Credit Tracking", "Udhaar"],
+    screenshotFilename: "mobile/mobile-screen-2.png",
   },
   {
     id: "outstanding-payments",
@@ -102,6 +112,7 @@ export const FEATURES: Feature[] = [
     problem: "Uncollected credit starves small businesses of working capital and causes cash flow crises.",
     benefit: "Dashboard receivables card highlights who owes money, how much, and for how long.",
     keywords: ["Outstanding", "Receivables", "Overdue Bills", "Credit Recovery", "Cash Flow"],
+    screenshotFilename: "mobile/mobile-screen-2.png",
   },
   {
     id: "payment-history-fifo",
@@ -111,6 +122,7 @@ export const FEATURES: Feature[] = [
     problem: "A customer pays ₹5,000 for 3 old bills, making manual bookkeeping reconciliation a headache.",
     benefit: "Auto-allocates incoming cash/UPI payments chronologically to settle oldest dues first.",
     keywords: ["FIFO Allocation", "Payment Settlement", "Payment History", "Partial Payment", "Lump Sum"],
+    screenshotFilename: "mobile/mobile-screen-2.png",
   },
 
   // --- Inventory & Stock ---
@@ -122,6 +134,7 @@ export const FEATURES: Feature[] = [
     problem: "Inconsistent item pricing across cashiers and lack of product organization.",
     benefit: "Unified price and barcode catalog ensuring standardized retail checkout.",
     keywords: ["Products", "Catalog", "SKU", "Pricing", "Unit Cost", "Selling Price"],
+    screenshotFilename: "mobile/mobile-screen-3.png",
   },
   {
     id: "services-catalog",
@@ -131,6 +144,7 @@ export const FEATURES: Feature[] = [
     problem: "Repair shops struggle to bill physical parts and service labor on the same invoice.",
     benefit: "Combine inventory goods (with stock deduction) and service fees on one invoice.",
     keywords: ["Services", "SAC Code", "Labor Charges", "Repair Service", "Consultation"],
+    screenshotFilename: "mobile/mobile-screen-3.png",
   },
   {
     id: "stock-management",
@@ -140,6 +154,7 @@ export const FEATURES: Feature[] = [
     problem: "Running out of fast-moving products during peak store hours drives customers away.",
     benefit: "Stock auto-decreases on sale; color-coded badges warn when reorder levels are reached.",
     keywords: ["Stock Management", "Low Stock Alert", "Inventory Control", "Restock", "Out of Stock"],
+    screenshotFilename: "mobile/mobile-screen-3.png",
   },
   {
     id: "item-stock-ledger",
@@ -149,6 +164,7 @@ export const FEATURES: Feature[] = [
     problem: "Store owners cannot tell when stock arrived, who bought it, or at what cost.",
     benefit: "Click any product in the inventory to audit complete chronological stock movements.",
     keywords: ["Stock Ledger", "Movement History", "Stock In", "Stock Out", "Audit Trail", "Inventory Modal"],
+    screenshotFilename: "desktop/desktop-stock-ledger.png",
   },
   {
     id: "barcode-scanning",
@@ -158,6 +174,7 @@ export const FEATURES: Feature[] = [
     problem: "Typing 10-digit product names manually during rush hours creates counter bottlenecks.",
     benefit: "Scan product barcode to instantly add line items with price and tax pre-filled.",
     keywords: ["Barcode Scanner", "Camera Scanner", "USB Barcode", "Fast Billing", "Point of Sale"],
+    screenshotFilename: "mobile/mobile-screen-3.png",
   },
 
   // --- Printing & Hardware ---
@@ -169,6 +186,7 @@ export const FEATURES: Feature[] = [
     problem: "Full-sheet A4 paper printing is expensive, slow, and wasteful for small retail sales.",
     benefit: "Pocket-sized 58mm receipts with store logo, tax breakdown, and UPI QR code.",
     keywords: ["58mm Thermal", "2-inch Receipt", "Thermal POS", "Pocket Printer", "Inkless"],
+    screenshotFilename: "mobile/mobile-screen-5.png",
   },
   {
     id: "thermal-printing-80mm",
@@ -178,6 +196,7 @@ export const FEATURES: Feature[] = [
     problem: "Compact 58mm slips lack space for detailed item descriptions and HSN columns.",
     benefit: "Wide, high-density 80mm format suitable for multi-item grocery and restaurant checkout.",
     keywords: ["80mm Thermal", "3-inch Receipt", "Supermarket POS", "Wide Receipt", "Counter Printer"],
+    screenshotFilename: "mobile/mobile-screen-5.png",
   },
   {
     id: "bluetooth-printer",
@@ -187,6 +206,7 @@ export const FEATURES: Feature[] = [
     problem: "Tangled cables and bulky computers restrict billing to one stationary desk.",
     benefit: "Bill anywhere in the store or out in the field and print wirelessly over Bluetooth.",
     keywords: ["Bluetooth Printer", "Wireless POS", "Mobile Printing", "ESC/POS", "Android Print"],
+    screenshotFilename: "mobile/mobile-screen-5.png",
   },
   {
     id: "desktop-usb-printing",
@@ -196,6 +216,7 @@ export const FEATURES: Feature[] = [
     problem: "Linux counter workstations often suffer from driver incompatibilities with receipt printers.",
     benefit: "Direct hardware support for standard USB and network thermal POS printers on Linux.",
     keywords: ["USB Printing", "Linux POS", "Desktop Printing", "Network Printer", "LAN Receipt"],
+    screenshotFilename: "desktop/desktop-billing-pos.png",
   },
   {
     id: "a4-printing",
@@ -205,6 +226,7 @@ export const FEATURES: Feature[] = [
     problem: "B2B clients demand formal full-page invoices with bank account details and terms.",
     benefit: "Flawlessly proportioned A4 layout with detailed tax split tables and signature box.",
     keywords: ["A4 Printing", "Laser Printer", "Formal Invoice", "B2B Paper Bill", "Office Invoicing"],
+    screenshotFilename: "mobile/mobile-ready.png",
   },
 
   // --- Document Sharing & Mobility ---
@@ -216,6 +238,7 @@ export const FEATURES: Feature[] = [
     problem: "Customers throw away paper receipts, leaving them with no warranty proof or bill record.",
     benefit: "Deliver PDF bills and payment receipts straight to WhatsApp without saving temporary contacts.",
     keywords: ["WhatsApp Sharing", "WhatsApp Invoice", "Direct Share", "Paperless Bill"],
+    screenshotFilename: "mobile/mobile-ready.png",
   },
   {
     id: "offline-usage",
@@ -225,6 +248,7 @@ export const FEATURES: Feature[] = [
     problem: "Broadband outages and poor network signals freeze cloud-based POS software.",
     benefit: "Complete standalone offline operation with local SQLite database on phone and desktop.",
     keywords: ["Offline Billing", "No Internet", "Local Database", "Zero Downtime", "Offline POS"],
+    screenshotFilename: "mobile/mobile-welcome.png",
   },
   {
     id: "local-backup-restore",
@@ -234,6 +258,7 @@ export const FEATURES: Feature[] = [
     problem: "Fear of losing business records during phone upgrades or accidental device damage.",
     benefit: "One-tap encrypted local database export; restore seamlessly on another device or desktop.",
     keywords: ["Local Backup", "Restore", "Two-Way Sync", "Data Privacy", "Data Ownership"],
+    screenshotFilename: "mobile/mobile-screen-5.png",
   },
   {
     id: "csv-import-export",
@@ -243,6 +268,7 @@ export const FEATURES: Feature[] = [
     problem: "Manually typing 1,000 inventory items into new software takes days of tedious effort.",
     benefit: "Upload standard CSV file to populate products, prices, stock, and customer lists instantly.",
     keywords: ["CSV Import", "Excel Migration", "Bulk Upload", "Export Data", "Spreadsheet"],
+    screenshotFilename: "desktop/desktop-inventory.png",
   },
 
   // --- Reports & Expenses ---
@@ -254,6 +280,7 @@ export const FEATURES: Feature[] = [
     problem: "High sales volume does not translate to profit if store overhead expenses are unrecorded.",
     benefit: "Categorize expenditures to understand real operating costs and daily cash drainage.",
     keywords: ["Expenses", "Overheads", "Operating Costs", "Daily Cash Out", "Expense Report"],
+    screenshotFilename: "mobile/mobile-screen-4.png",
   },
   {
     id: "sales-profit-reports",
@@ -263,6 +290,7 @@ export const FEATURES: Feature[] = [
     problem: "Shopkeepers fly blind without knowing which items yield real margins versus empty volume.",
     benefit: "Daily, monthly, and item-wise turnover analytics with automated gross profit estimation.",
     keywords: ["Sales Report", "Gross Profit", "Turnover", "Business Analytics", "Closing Summary"],
+    screenshotFilename: "mobile/mobile-screen-4.png",
   },
   {
     id: "pro-plan",
@@ -272,6 +300,7 @@ export const FEATURES: Feature[] = [
     problem: "Growing retail stores hit daily limits on free tiers and need unlimited capacity.",
     benefit: "Unlimited billing, priority template access, and advanced business reporting tools.",
     keywords: ["Pro Plan", "Subscription", "Unlimited Billing", "Business Growth", "Upgrade"],
+    screenshotFilename: "mobile/mobile-features.png",
   },
 
   // --- Planned / Coming Soon ---
@@ -283,6 +312,7 @@ export const FEATURES: Feature[] = [
     problem: "Logging into Government portals to manually generate e-Way bills for consignments above ₹50,000.",
     benefit: "Planned direct generation of e-Way bills and IRN QR codes directly from invoices.",
     keywords: ["E-Way Bill", "E-Invoicing", "IRN", "Government Portal", "Transport Consignment"],
+    screenshotFilename: "desktop/desktop-invoices.png",
     isComingSoon: true,
   },
   {
@@ -293,6 +323,7 @@ export const FEATURES: Feature[] = [
     problem: "Multi-counter retail stores need live continuous sync without manual backup file transfer.",
     benefit: "End-to-end encrypted continuous sync keeping multiple mobile and PC counters in unison.",
     keywords: ["Cloud Sync", "Multi-Device", "Multi-Counter", "Automatic Sync", "Real-Time Sync"],
+    screenshotFilename: "desktop/desktop-dashboard.png",
     isComingSoon: true,
   },
 ];

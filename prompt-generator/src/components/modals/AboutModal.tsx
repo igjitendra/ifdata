@@ -80,9 +80,36 @@ export const AboutModal: React.FC<AboutModalProps> = ({ isOpen, onClose }) => {
             </ul>
           </div>
 
+          {/* Official Downloads & Release Links */}
+          <div className="p-3.5 rounded-xl border border-red-500/20 bg-red-500/5 dark:bg-red-500/10 space-y-2">
+            <h4 className="text-xs font-black uppercase tracking-wider text-[#EF3035]">
+              Official App Releases &amp; Resources
+            </h4>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+              <a
+                href="https://github.com/igjitendra/ifdata/releases"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded-lg bg-white dark:bg-zinc-850 border border-zinc-200 dark:border-zinc-700 hover:border-[#EF3035] flex items-center justify-between font-semibold text-zinc-900 dark:text-white group"
+              >
+                <span>📦 Linux Desktop (.deb &amp; .rpm)</span>
+                <ExternalLink className="w-3.5 h-3.5 text-zinc-400 group-hover:text-[#EF3035]" />
+              </a>
+              <a
+                href="https://github.com/igjitendra/ifdata/releases"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded-lg bg-white dark:bg-zinc-850 border border-zinc-200 dark:border-zinc-700 hover:border-[#EF3035] flex items-center justify-between font-semibold text-zinc-900 dark:text-white group"
+              >
+                <span>📱 Android App Release</span>
+                <ExternalLink className="w-3.5 h-3.5 text-zinc-400 group-hover:text-[#EF3035]" />
+              </a>
+            </div>
+          </div>
+
           <div className="pt-3 border-t border-zinc-200 dark:border-zinc-800 flex items-center justify-between text-zinc-500">
             <span>© 2026 PRO CSC TOOLS • InvoiceFine</span>
-            <span className="text-[11px]">Version 1.0.0 (Static Release)</span>
+            <span className="text-[11px]">Version 1.2.0 (Verified Release)</span>
           </div>
         </div>
       </div>

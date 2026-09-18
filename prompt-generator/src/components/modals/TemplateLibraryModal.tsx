@@ -69,7 +69,7 @@ export const TemplateLibraryModal: React.FC<TemplateLibraryModalProps> = ({ isOp
         {/* Header */}
         <div className="flex items-center justify-between px-6 py-4 border-b border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/50">
           <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-lg bg-indigo-500/10 flex items-center justify-center text-indigo-600 dark:text-indigo-400">
+            <div className="w-8 h-8 rounded-lg bg-[#EF3035]/10 flex items-center justify-center text-[#EF3035]">
               <Bookmark className="w-4 h-4" />
             </div>
             <div>
